@@ -2,7 +2,7 @@
 	"name": "SourceDataset_wh9",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "JSONBlobStorage1",
+			"referenceName": "AzureBlobStorage1",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
