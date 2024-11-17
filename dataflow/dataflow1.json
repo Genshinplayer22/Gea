@@ -51,7 +51,7 @@
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
 				"     skipDuplicateMapOutputs: false) ~> flatten1",
-				"flatten1 parse(decoded_Body_new = decoded_Body ? (E_ProgRunn as boolean)[],",
+				"flatten1 parse(decoded_Body_new = byName('decoded_Body').E_ProgrAborted ? (E_ProgRunn as boolean)[],",
 				"     format: 'json',",
 				"     documentForm: 'documentPerLine') ~> parse1",
 				"parse1 foldDown(unroll(decoded_Body_new),",
