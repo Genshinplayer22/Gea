@@ -19,9 +19,6 @@
 			"transformations": [
 				{
 					"name": "derivedColumn1"
-				},
-				{
-					"name": "flowlet1"
 				}
 			],
 			"scriptLines": [
@@ -36,8 +33,7 @@
 				"     ignoreNoFilesFound: false,",
 				"     documentForm: 'documentPerLine',",
 				"     wildcardPaths:['*.json']) ~> source1",
-				"source1 derive(decoded_Body = array(fromBase64(Body))) ~> derivedColumn1",
-				"derivedColumn1 compose(composition: 'undefined') ~> flowlet1@()"
+				"source1 derive(decoded_Body = array(fromBase64(Body))) ~> derivedColumn1"
 			]
 		}
 	}
