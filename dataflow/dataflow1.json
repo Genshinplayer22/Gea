@@ -36,7 +36,7 @@
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     limit: 100,",
+				"     limit: 10,",
 				"     ignoreNoFilesFound: false,",
 				"     fileList: true,",
 				"     partitionRootPath: 'machinedata/00/2022/2022/01/01/00*',",
