@@ -58,7 +58,7 @@
 				"     mapColumn(",
 				"          EnqueuedTimeUtc,",
 				"          Connectionid,",
-				"          decoded_Body = decoded_Body_new",
+				"          decoded_Body = decoded_Body_new.ts",
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
 				"     skipDuplicateMapOutputs: false) ~> flatten2"
