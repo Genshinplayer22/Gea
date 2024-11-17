@@ -39,7 +39,7 @@
 				"     ignoreNoFilesFound: false,",
 				"     fileList: true,",
 				"     documentForm: 'documentPerLine',",
-				"     wildcardPaths:['machinedata/']) ~> source1",
+				"     wildcardPaths:['machinedata/00/2022/2022*']) ~> source1",
 				"source1 derive(decoded_Body = array(fromBase64(Body))) ~> derivedColumn1",
 				"derivedColumn1 foldDown(unroll(decoded_Body),",
 				"     mapColumn(",
