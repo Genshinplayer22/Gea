@@ -28,6 +28,9 @@
 				},
 				{
 					"name": "flatten2"
+				},
+				{
+					"name": "select1"
 				}
 			],
 			"scriptLines": [
@@ -42,11 +45,11 @@
 				"     ignoreNoFilesFound: false,",
 				"     documentForm: 'documentPerLine') ~> source1",
 				"source1 derive(decoded_Body = array(fromBase64(Body))) ~> derivedColumn1",
-				"derivedColumn1 foldDown(unroll(decoded_Body),",
+				"select1 foldDown(unroll(decoded_Body),",
 				"     mapColumn(",
 				"          EnqueuedTimeUtc,",
 				"          Connectionid = SystemProperties.connectionDeviceId,",
-				"          decoded_Body = {decoded_Body.}",
+				"          decoded_Body = Properties.{}",
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
 				"     skipDuplicateMapOutputs: false) ~> flatten1",
@@ -60,7 +63,12 @@
 				"          ts = decoded_Body_new.ts",
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
-				"     skipDuplicateMapOutputs: false) ~> flatten2"
+				"     skipDuplicateMapOutputs: false) ~> flatten2",
+				"derivedColumn1 select(mapColumn(",
+				"          decoded_Body",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1"
 			]
 		}
 	}
