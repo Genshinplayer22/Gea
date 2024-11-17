@@ -33,7 +33,7 @@
 				"     ignoreNoFilesFound: false,",
 				"     documentForm: 'documentPerLine',",
 				"     wildcardPaths:['*.json']) ~> source1",
-				"source1 derive(decoded_Body = array(fromBase64)) ~> derivedColumn1"
+				"source1 derive(decoded_Body = array(fromBase64(Body))) ~> derivedColumn1"
 			]
 		}
 	}
