@@ -37,6 +37,7 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
+				"     fileList: true,",
 				"     documentForm: 'documentPerLine',",
 				"     wildcardPaths:['*.json']) ~> source1",
 				"source1 derive(decoded_Body = array(fromBase64(Body))) ~> derivedColumn1",
