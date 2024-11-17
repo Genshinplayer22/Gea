@@ -46,7 +46,7 @@
 				"     mapColumn(",
 				"          EnqueuedTimeUtc,",
 				"          Connectionid = SystemProperties.connectionDeviceId,",
-				"          decoded_Body",
+				"          decoded_Body = {decoded_Body.}",
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
 				"     skipDuplicateMapOutputs: false) ~> flatten1",
