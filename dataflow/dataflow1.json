@@ -38,7 +38,7 @@
 				"     validateSchema: false,",
 				"     limit: 10,",
 				"     ignoreNoFilesFound: false,",
-				"     partitionRootPath: 'machinedata/00/2022/2022/01/01/*',",
+				"     partitionRootPath: 'machinedata/00/2022/2022/01/01*',",
 				"     documentForm: 'documentPerLine') ~> source1",
 				"source1 derive(decoded_Body = array(fromBase64(Body))) ~> derivedColumn1",
 				"derivedColumn1 foldDown(unroll(decoded_Body),",
