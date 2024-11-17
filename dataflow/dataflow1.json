@@ -69,7 +69,7 @@
 				"          BAG1_opMode as integer)[],",
 				"     format: 'json',",
 				"     documentForm: 'documentPerLine') ~> parse1",
-				"parse1 foldDown(unroll(decoded_Body),",
+				"parse1 foldDown(unroll(decoded_Body_new),",
 				"     mapColumn(",
 				"          EnqueuedTimeUtc,",
 				"          Connectionid,",
