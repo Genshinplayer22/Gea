@@ -22,6 +22,9 @@
 				},
 				{
 					"name": "flatten1"
+				},
+				{
+					"name": "parse1"
 				}
 			],
 			"scriptLines": [
@@ -40,12 +43,14 @@
 				"derivedColumn1 foldDown(unroll(decoded_Body),",
 				"     mapColumn(",
 				"          EnqueuedTimeUtc,",
-				"          Connection = SystemProperties.connectionDeviceId,",
-				"          Body,",
+				"          Connectionid = SystemProperties.connectionDeviceId,",
 				"          decoded_Body",
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
-				"     skipDuplicateMapOutputs: false) ~> flatten1"
+				"     skipDuplicateMapOutputs: false) ~> flatten1",
+				"flatten1 parse(decoded_Body = ERROR_FUNCTION(''),",
+				"     format: 'json',",
+				"     documentForm: 'documentPerLine') ~> parse1"
 			]
 		}
 	}
