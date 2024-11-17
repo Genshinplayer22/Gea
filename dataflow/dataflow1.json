@@ -19,6 +19,9 @@
 			"transformations": [
 				{
 					"name": "derivedColumn1"
+				},
+				{
+					"name": "flatten1"
 				}
 			],
 			"scriptLines": [
@@ -33,7 +36,16 @@
 				"     ignoreNoFilesFound: false,",
 				"     documentForm: 'documentPerLine',",
 				"     wildcardPaths:['*.json']) ~> source1",
-				"source1 derive(decoded_Body = array(fromBase64(Body))) ~> derivedColumn1"
+				"source1 derive(decoded_Body = array(fromBase64(Body))) ~> derivedColumn1",
+				"derivedColumn1 foldDown(unroll(decoded_Body),",
+				"     mapColumn(",
+				"          EnqueuedTimeUtc,",
+				"          Connection = SystemProperties.connectionDeviceId,",
+				"          Body,",
+				"          decoded_Body",
+				"     ),",
+				"     skipDuplicateMapInputs: false,",
+				"     skipDuplicateMapOutputs: false) ~> flatten1"
 			]
 		}
 	}
