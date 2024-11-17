@@ -1,0 +1,9 @@
+{
+	"name": "geagpkilab-datafactory",
+	"location": "westeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "5eee29e0-d380-4e84-823e-b32f73096f0d",
+		"tenantId": "0e17f90f-88a3-4f93-a5d7-cc847cff307e"
+	}
+}
