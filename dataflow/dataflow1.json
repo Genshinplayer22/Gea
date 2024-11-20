@@ -35,6 +35,9 @@
 				},
 				{
 					"name": "parse1"
+				},
+				{
+					"name": "derivedColumn2"
 				}
 			],
 			"scriptLines": [
@@ -72,7 +75,8 @@
 				"     skipDuplicateMapOutputs: true) ~> flatten3",
 				"flatten3 parse(decoded_Body = ERROR_FUNCTION(''),",
 				"     format: 'json',",
-				"     documentForm: 'documentPerLine') ~> parse1"
+				"     documentForm: 'documentPerLine') ~> parse1",
+				"source2 derive(Body = fromBase64(Body, 'latin1')) ~> derivedColumn2"
 			]
 		}
 	}
