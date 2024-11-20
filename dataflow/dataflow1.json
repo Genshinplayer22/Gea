@@ -21,16 +21,13 @@
 					"name": "derivedColumn1"
 				},
 				{
-					"name": "flatten2"
-				},
-				{
 					"name": "select1"
 				},
 				{
 					"name": "flatten3"
 				},
 				{
-					"name": "parse2"
+					"name": "parse1"
 				}
 			],
 			"scriptLines": [
@@ -45,12 +42,6 @@
 				"     ignoreNoFilesFound: false,",
 				"     documentForm: 'documentPerLine') ~> source1",
 				"source1 derive(decoded_Body = array(fromBase64(Body))) ~> derivedColumn1",
-				"parse2 foldDown(unroll(decoded_Body1),",
-				"     mapColumn(",
-				"          ts = decoded_Body1.ts",
-				"     ),",
-				"     skipDuplicateMapInputs: false,",
-				"     skipDuplicateMapOutputs: false) ~> flatten2",
 				"derivedColumn1 select(mapColumn(",
 				"          decoded_Body",
 				"     ),",
@@ -62,36 +53,9 @@
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> flatten3",
-				"flatten3 parse(decoded_Body1 = decoded_Body ? (topicName as string,",
-				"     ts as string,",
-				"     E_ProgRunn as boolean,",
-				"     E_ProgWait as boolean,",
-				"     E_ProgStop as boolean,",
-				"     E_ProgInterrupt as boolean,",
-				"     E_ProgrAborted as boolean,",
-				"     E_ChanActive as boolean,",
-				"     Ch1_ProgPfadName as string,",
-				"     Ch1_LineContent as string,",
-				"     Ch1_ToolIdent as string,",
-				"     Ist_Werkstueckzahl as integer,",
-				"     Soll_Werkstueckzahl as integer,",
-				"     GesSummeWerkstuecke as integer,",
-				"     Vorschuboverride as integer,",
-				"     Eilgangoverride as integer,",
-				"     Spindeloverride as integer,",
-				"     Ch1_actSpeed_S1 as integer,",
-				"     ncProgEndCounter as ,",
-				"     ncStartCounter as integer,",
-				"     WerkzeugEingrZeit as integer,",
-				"     LZeitaktProgramm as integer,",
-				"     GeslaufzeitProg as integer,",
-				"     actProgNetTime as ,",
-				"     oldProgNetTime as ,",
-				"     NCKPrgzustand as integer,",
-				"     BAGbetriebsbereit as integer,",
-				"     BAG1_opMode as integer)[],",
+				"flatten3 parse(decoded_Body = decoded_Body,",
 				"     format: 'json',",
-				"     documentForm: 'arrayOfDocuments') ~> parse2"
+				"     documentForm: 'documentPerLine') ~> parse1"
 			]
 		}
 	}
