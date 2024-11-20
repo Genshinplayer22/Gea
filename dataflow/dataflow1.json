@@ -13,16 +13,13 @@
 						"type": "DatasetReference"
 					},
 					"name": "source1"
-				},
-				{
-					"dataset": {
-						"referenceName": "SourceDataset_wh9",
-						"type": "DatasetReference"
-					},
-					"name": "source2"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"name": "sink1"
+				}
+			],
 			"transformations": [
 				{
 					"name": "derivedColumn1"
@@ -37,10 +34,7 @@
 					"name": "parse1"
 				},
 				{
-					"name": "derivedColumn2"
-				},
-				{
-					"name": "parse2"
+					"name": "flatten4"
 				}
 			],
 			"scriptLines": [
@@ -54,16 +48,6 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
 				"     documentForm: 'documentPerLine') ~> source1",
-				"source(output(",
-				"          EnqueuedTimeUtc as string,",
-				"          Properties as ({} as string),",
-				"          SystemProperties as (connectionDeviceId as string, connectionAuthMethod as string, connectionDeviceGenerationId as string, enqueuedTime as string),",
-				"          Body as string",
-				"     ),",
-				"     allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false,",
-				"     documentForm: 'documentPerLine') ~> source2",
 				"source1 derive(decoded_Body = array(fromBase64(Body))) ~> derivedColumn1",
 				"derivedColumn1 select(mapColumn(",
 				"          decoded_Body",
@@ -106,10 +90,16 @@
 				"     BAG1_opMode as integer)[],",
 				"     format: 'json',",
 				"     documentForm: 'arrayOfDocuments') ~> parse1",
-				"source2 derive(Body = fromBase64(Body, 'latin1')) ~> derivedColumn2",
-				"derivedColumn2 parse(decoded_Body = Body ? ERROR_FUNCTION('(topicName as string,      ts as string,      E_ProgRunn as boolean,      E_ProgWait as boolean,      E_ProgStop as boolean,      E_ProgInterrupt as boolean,      E_ProgrAborted as boolean,      E_ChanActive as boolean,      Ch1_ProgPfadName as string,      Ch1_LineContent as string,      Ch1_ToolIdent as string,      Ist_Werkstueckzahl as integer,      Soll_Werkstueckzahl as integer,      GesSummeWerkstuecke as integer,      Vorschuboverride as integer,      Eilgangoverride as integer,      Spindeloverride as integer,      Ch1_actSpeed_S1 as integer,      ncProgEndCounter as ,      ncStartCounter as integer,      WerkzeugEingrZeit as integer,      LZeitaktProgramm as integer,      GeslaufzeitProg as integer,      actProgNetTime as ,      oldProgNetTime as ,      NCKPrgzustand as integer,      BAGbetriebsbereit as integer,      BAG1_opMode as integer)[]'),",
-				"     format: 'json',",
-				"     documentForm: 'arrayOfDocuments') ~> parse2"
+				"parse1 foldDown(unroll(decoded_Body),",
+				"     mapColumn(",
+				"          ts = decoded_Body.ts",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> flatten4",
+				"flatten4 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
 			]
 		}
 	}
