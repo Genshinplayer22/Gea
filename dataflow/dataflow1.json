@@ -38,6 +38,9 @@
 				},
 				{
 					"name": "derivedColumn2"
+				},
+				{
+					"name": "parse2"
 				}
 			],
 			"scriptLines": [
@@ -76,7 +79,10 @@
 				"flatten3 parse(decoded_Body = ERROR_FUNCTION(''),",
 				"     format: 'json',",
 				"     documentForm: 'documentPerLine') ~> parse1",
-				"source2 derive(Body = fromBase64(Body, 'latin1')) ~> derivedColumn2"
+				"source2 derive(Body = fromBase64(Body, 'latin1')) ~> derivedColumn2",
+				"derivedColumn2 parse(decoded_Body = Body,",
+				"     format: 'json',",
+				"     documentForm: 'documentPerLine') ~> parse2"
 			]
 		}
 	}
