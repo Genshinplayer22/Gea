@@ -13,7 +13,8 @@
 				"fileName": "01.json",
 				"folderPath": "00/2022/2022/01/01/00",
 				"container": "machinedata"
-			}
+			},
+			"encodingName": "UTF-8"
 		},
 		"schema": {
 			"type": "object",
