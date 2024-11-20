@@ -31,6 +31,9 @@
 				},
 				{
 					"name": "flatten3"
+				},
+				{
+					"name": "parse2"
 				}
 			],
 			"scriptLines": [
@@ -45,7 +48,7 @@
 				"     ignoreNoFilesFound: false,",
 				"     documentForm: 'documentPerLine') ~> source1",
 				"source1 derive(decoded_Body = array(fromBase64(Body))) ~> derivedColumn1",
-				"flatten3 parse(decoded_Body_new = decoded_Body ? (ts as string, E_ProgRunn as boolean, E_ProgWait as boolean,     Ch1_ProgPfadName as string,     Ch1_LineContent as string,     Ch1_ToolIdent as string,     Vorschuboverride as integer,     Eilgangoverride as integer,     Spindeloverride as integer,     Ch1_actSpeed_S1 as integer,     ncStartCounter as integer,     actProgNetTime as integer,     oldProgNetTime as integer,     BAG1_opMode as integer)[],",
+				"parse2 parse(decoded_Body_new = decoded_Body ? (ts as string, E_ProgRunn as boolean, E_ProgWait as boolean,     Ch1_ProgPfadName as string,     Ch1_LineContent as string,     Ch1_ToolIdent as string,     Vorschuboverride as integer,     Eilgangoverride as integer,     Spindeloverride as integer,     Ch1_actSpeed_S1 as integer,     ncStartCounter as integer,     actProgNetTime as integer,     oldProgNetTime as integer,     BAG1_opMode as integer)[],",
 				"     format: 'json',",
 				"     documentForm: 'documentPerLine') ~> parse1",
 				"parse1 foldDown(unroll(decoded_Body_new),",
@@ -66,7 +69,10 @@
 				"          decoded_Body",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> flatten3"
+				"     skipDuplicateMapOutputs: true) ~> flatten3",
+				"flatten3 parse(decoded_Body1 = decoded_Body,",
+				"     format: 'json',",
+				"     documentForm: 'documentPerLine') ~> parse2"
 			]
 		}
 	}
