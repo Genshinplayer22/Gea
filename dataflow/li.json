@@ -1,0 +1,150 @@
+{
+	"name": "li",
+	"properties": {
+		"folder": {
+			"name": "New folder"
+		},
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "SourceDataset_wh9",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DestinationDataset_wh9",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "derivedColumn1"
+				},
+				{
+					"name": "select1"
+				},
+				{
+					"name": "flatten3"
+				},
+				{
+					"name": "parse1"
+				},
+				{
+					"name": "flatten4"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          EnqueuedTimeUtc as string,",
+				"          Properties as ({} as string),",
+				"          SystemProperties as (connectionDeviceId as string, connectionAuthMethod as string, connectionDeviceGenerationId as string, enqueuedTime as string),",
+				"          Body as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     limit: 1000,",
+				"     ignoreNoFilesFound: false,",
+				"     documentForm: 'documentPerLine') ~> source1",
+				"source1 derive(decoded_Body = array(fromBase64(Body))) ~> derivedColumn1",
+				"derivedColumn1 select(mapColumn(",
+				"          decoded_Body,",
+				"          connectionDeviceId = SystemProperties.connectionDeviceId,",
+				"          connectionAuthMethod = SystemProperties.connectionAuthMethod,",
+				"          connectionDeviceGenerationId = SystemProperties.connectionDeviceGenerationId,",
+				"          enqueuedTime = SystemProperties.enqueuedTime",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"select1 foldDown(unroll(decoded_Body, decoded_Body),",
+				"     mapColumn(",
+				"          decoded_Body,",
+				"          connectionDeviceId,",
+				"          connectionAuthMethod,",
+				"          connectionDeviceGenerationId,",
+				"          enqueuedTime",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> flatten3",
+				"flatten3 parse(decoded_Body = decoded_Body ? (topicName as string,",
+				"     ts as string,",
+				"     E_ProgRunn as boolean,",
+				"     E_ProgWait as boolean,",
+				"     E_ProgStop as boolean,",
+				"     E_ProgInterrupt as boolean,",
+				"     E_ProgrAborted as boolean,",
+				"     E_ChanActive as boolean,",
+				"     Ch1_ProgPfadName as string,",
+				"     Ch1_LineContent as string,",
+				"     Ch1_ToolIdent as string,",
+				"     Ist_Werkstueckzahl as integer,",
+				"     Soll_Werkstueckzahl as integer,",
+				"     GesSummeWerkstuecke as integer,",
+				"     Vorschuboverride as integer,",
+				"     Eilgangoverride as integer,",
+				"     Spindeloverride as integer,",
+				"     Ch1_actSpeed_S1 as integer,",
+				"     ncProgEndCounter as integer,",
+				"     ncStartCounter as integer,",
+				"     WerkzeugEingrZeit as integer,",
+				"     LZeitaktProgramm as integer,",
+				"     GeslaufzeitProg as integer,",
+				"     actProgNetTime as integer,",
+				"     oldProgNetTime as integer,",
+				"     NCKPrgzustand as integer,",
+				"     BAGbetriebsbereit as integer,",
+				"     BAG1_opMode as integer)[],",
+				"     format: 'json',",
+				"     documentForm: 'arrayOfDocuments') ~> parse1",
+				"parse1 foldDown(unroll(decoded_Body),",
+				"     mapColumn(",
+				"          ts = decoded_Body.ts,",
+				"          topicName = decoded_Body.topicName,",
+				"          E_ProgRunn = decoded_Body.E_ProgRunn,",
+				"          E_ProgWait = decoded_Body.E_ProgWait,",
+				"          E_ProgStop = decoded_Body.E_ProgStop,",
+				"          E_ProgStop = decoded_Body.E_ProgInterrupt,",
+				"          E_ProgrAborted = decoded_Body.E_ProgrAborted,",
+				"          E_ChanActive = decoded_Body.E_ChanActive,",
+				"          Ch1_ProgPfadName = decoded_Body.Ch1_ProgPfadName,",
+				"          Ch1_LineContent = decoded_Body.Ch1_LineContent,",
+				"          Ch1_ToolIdent = decoded_Body.Ch1_ToolIdent,",
+				"          Ist_Werkstueckzahl = decoded_Body.Ist_Werkstueckzahl,",
+				"          Soll_Werkstueckzahl = decoded_Body.Soll_Werkstueckzahl,",
+				"          GesSummeWerkstuecke = decoded_Body.GesSummeWerkstuecke,",
+				"          Vorschuboverride = decoded_Body.Vorschuboverride,",
+				"          Vorschuboverride = decoded_Body.Eilgangoverride,",
+				"          Spindeloverride = decoded_Body.Spindeloverride,",
+				"          Ch1_actSpeed_S1 = decoded_Body.Ch1_actSpeed_S1,",
+				"          ncProgEndCounter = decoded_Body.ncProgEndCounter,",
+				"          ncStartCounter = decoded_Body.ncStartCounter,",
+				"          WerkzeugEingrZeit = decoded_Body.WerkzeugEingrZeit,",
+				"          LZeitaktProgramm = decoded_Body.LZeitaktProgramm,",
+				"          GeslaufzeitProg = decoded_Body.GeslaufzeitProg,",
+				"          actProgNetTime = decoded_Body.actProgNetTime,",
+				"          oldProgNetTime = decoded_Body.oldProgNetTime,",
+				"          NCKPrgzustand = decoded_Body.NCKPrgzustand,",
+				"          BAGbetriebsbereit = decoded_Body.BAGbetriebsbereit,",
+				"          BAG1_opMode = decoded_Body.BAG1_opMode,",
+				"          connectionDeviceId,",
+				"          connectionAuthMethod,",
+				"          connectionDeviceGenerationId,",
+				"          enqueuedTime",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> flatten4",
+				"flatten4 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
+			]
+		}
+	}
+}
