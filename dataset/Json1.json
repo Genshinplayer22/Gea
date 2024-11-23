@@ -14,6 +14,91 @@
 				"container": "testcontainer"
 			}
 		},
-		"schema": {}
+		"schema": {
+			"type": "object",
+			"properties": {
+				"ts": {
+					"type": "string"
+				},
+				"topicName": {
+					"type": "string"
+				},
+				"E_ProgRunn": {
+					"type": "boolean"
+				},
+				"E_ProgWait": {
+					"type": "boolean"
+				},
+				"E_ProgStop": {
+					"type": "boolean"
+				},
+				"E_ProgrAborted": {
+					"type": "boolean"
+				},
+				"E_ChanActive": {
+					"type": "boolean"
+				},
+				"Ch1_ProgPfadName": {
+					"type": "string"
+				},
+				"Ch1_LineContent": {
+					"type": "string"
+				},
+				"Ch1_ToolIdent": {
+					"type": "string"
+				},
+				"Ist_Werkstueckzahl": {
+					"type": "integer"
+				},
+				"Soll_Werkstueckzahl": {
+					"type": "integer"
+				},
+				"GesSummeWerkstuecke": {
+					"type": "integer"
+				},
+				"Vorschuboverride": {
+					"type": "integer"
+				},
+				"Spindeloverride": {
+					"type": "integer"
+				},
+				"Ch1_actSpeed_S1": {
+					"type": "integer"
+				},
+				"ncStartCounter": {
+					"type": "integer"
+				},
+				"WerkzeugEingrZeit": {
+					"type": "integer"
+				},
+				"LZeitaktProgramm": {
+					"type": "integer"
+				},
+				"GeslaufzeitProg": {
+					"type": "integer"
+				},
+				"NCKPrgzustand": {
+					"type": "integer"
+				},
+				"BAGbetriebsbereit": {
+					"type": "integer"
+				},
+				"BAG1_opMode": {
+					"type": "integer"
+				},
+				"connectionDeviceId": {
+					"type": "string"
+				},
+				"connectionAuthMethod": {
+					"type": "string"
+				},
+				"connectionDeviceGenerationId": {
+					"type": "string"
+				},
+				"enqueuedTime": {
+					"type": "string"
+				}
+			}
+		}
 	}
 }
