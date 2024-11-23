@@ -1,0 +1,19 @@
+{
+	"name": "DestinationDataset_zx",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "JSONBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "testcontainer"
+			}
+		},
+		"schema": {}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

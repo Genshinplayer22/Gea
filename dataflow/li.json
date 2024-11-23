@@ -18,10 +18,11 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "DestinationDataset_wh9",
+						"referenceName": "DestinationDataset_zx",
 						"type": "DatasetReference"
 					},
-					"name": "sink1"
+					"name": "sink1",
+					"description": "Export data to DestinationDataset_zx"
 				}
 			],
 			"transformations": [
