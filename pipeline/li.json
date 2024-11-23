@@ -112,7 +112,8 @@
 					"dataset": {
 						"referenceName": "DestinationDataset_zx",
 						"type": "DatasetReference"
-					}
+					},
+					"firstRowOnly": false
 				}
 			}
 		],
