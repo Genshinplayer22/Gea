@@ -1,0 +1,73 @@
+{
+	"name": "GroupedDestination",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "JSONBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "testcontainer"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"ts": {
+					"type": "string"
+				},
+				"E_ProgRunn": {
+					"type": "boolean"
+				},
+				"E_ProgWait": {
+					"type": "boolean"
+				},
+				"Ch1_ProgPfadName": {
+					"type": "string"
+				},
+				"Ch1_LineContent": {
+					"type": "string"
+				},
+				"Ch1_ToolIdent": {
+					"type": "string"
+				},
+				"Vorschuboverride": {
+					"type": "integer"
+				},
+				"Spindeloverride": {
+					"type": "integer"
+				},
+				"Ch1_actSpeed_S1": {
+					"type": "integer"
+				},
+				"ncStartCounter": {
+					"type": "integer"
+				},
+				"BAG1_opMode": {
+					"type": "integer"
+				},
+				"connectionDeviceId": {
+					"type": "string"
+				},
+				"connectionAuthMethod": {
+					"type": "string"
+				},
+				"connectionDeviceGenerationId": {
+					"type": "string"
+				},
+				"enqueuedTime": {
+					"type": "string"
+				},
+				"actProgNetTime": {
+					"type": "integer"
+				},
+				"oldProgNetTime": {
+					"type": "integer"
+				}
+			}
+		}
+	}
+}
