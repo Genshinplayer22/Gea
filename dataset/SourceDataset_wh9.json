@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"folderPath": "00/2022/2022/01/01/00",
+				"folderPath": "00/2022/2022/01/01/01",
 				"container": "machinedata"
 			},
 			"encodingName": "UTF-8"
