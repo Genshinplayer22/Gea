@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "Datastorage",
+						"referenceName": "SourceDataset_wh9",
 						"type": "DatasetReference"
 					},
 					"fieldList": [
