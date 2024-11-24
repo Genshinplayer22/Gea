@@ -53,6 +53,7 @@
 						"value": "@activity('Get Metadata1').output.childItems",
 						"type": "Expression"
 					},
+					"isSequential": false,
 					"activities": [
 						{
 							"name": "Execute Pipeline1",
@@ -104,11 +105,6 @@
 				}
 			}
 		],
-		"parameters": {
-			"Year": {
-				"type": "string"
-			}
-		},
 		"variables": {
 			"Year": {
 				"type": "String"
