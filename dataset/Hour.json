@@ -19,6 +19,9 @@
 				"type": "string"
 			}
 		},
+		"folder": {
+			"name": "YMD"
+		},
 		"annotations": [],
 		"type": "Json",
 		"typeProperties": {
