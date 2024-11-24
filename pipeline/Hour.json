@@ -90,6 +90,16 @@
 											"Day": "01",
 											"Hour": "00"
 										}
+									},
+									"linkedServiceParameters": {
+										"source1": {
+											"schemaLinkedService": {
+												"Year": "2022",
+												"Month": "01",
+												"Day": "01",
+												"Hour": "00"
+											}
+										}
 									}
 								},
 								"compute": {
