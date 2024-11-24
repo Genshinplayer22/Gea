@@ -21,10 +21,6 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"folderPath": {
-					"value": "@00/2022/dataset().Year/dataset().Month",
-					"type": "Expression"
-				},
 				"container": "machinedata"
 			}
 		},
