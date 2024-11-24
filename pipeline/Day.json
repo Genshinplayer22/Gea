@@ -73,7 +73,29 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"waitOnCompletion": true
+								"pipeline": {
+									"referenceName": "Hour",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": true,
+								"parameters": {
+									"Hour": {
+										"value": "@item().name",
+										"type": "Expression"
+									},
+									"Year": {
+										"value": "@pipeline().parameters.Year",
+										"type": "Expression"
+									},
+									"Month": {
+										"value": "@pipeline().parameters.Month",
+										"type": "Expression"
+									},
+									"Day": {
+										"value": "@pipeline().parameters.Day",
+										"type": "Expression"
+									}
+								}
 							}
 						}
 					]
