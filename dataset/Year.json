@@ -19,7 +19,7 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"folderPath": {
-					"value": "@concat('00/2022',dataset().Year)",
+					"value": "@concat('00/2022/',dataset().Year,'/')",
 					"type": "Expression"
 				},
 				"container": "machinedata"
