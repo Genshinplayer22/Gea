@@ -58,7 +58,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"dataflow": {
-									"referenceName": "grouping pipeline",
+									"referenceName": "grouping_pipeline",
 									"type": "DataFlowReference",
 									"parameters": {
 										"foreachConnectionID": {

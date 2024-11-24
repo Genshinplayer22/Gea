@@ -1,5 +1,5 @@
 {
-	"name": "Transform all the data from the source",
+	"name": "Transform",
 	"properties": {
 		"folder": {
 			"name": "New folder"

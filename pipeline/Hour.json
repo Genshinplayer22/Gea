@@ -81,7 +81,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"dataflow": {
-									"referenceName": "Transform all the data from the source",
+									"referenceName": "Transform",
 									"type": "DataFlowReference",
 									"datasetParameters": {
 										"source1": {
