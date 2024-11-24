@@ -3,8 +3,8 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Get Metadata1",
-				"type": "GetMetadata",
+				"name": "Data flow1",
+				"type": "ExecuteDataFlow",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -15,57 +15,35 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"dataset": {
-						"referenceName": "Hour",
-						"type": "DatasetReference",
-						"parameters": {
-							"Year": {
-								"value": "@pipeline().parameters.Year",
-								"type": "Expression"
-							},
-							"Month": {
-								"value": "@pipeline().parameters.Month",
-								"type": "Expression"
-							},
-							"Day": {
-								"value": "@pipeline().parameters.Day",
-								"type": "Expression"
-							},
-							"Hour": {
-								"value": "@pipeline().parameters.Hour",
-								"type": "Expression"
+					"dataflow": {
+						"referenceName": "Transform",
+						"type": "DataFlowReference",
+						"datasetParameters": {
+							"source1": {
+								"Year": {
+									"value": "@pipeline().parameters.Year",
+									"type": "Expression"
+								},
+								"Month": {
+									"value": "@pipeline().parameters.Month",
+									"type": "Expression"
+								},
+								"Day": {
+									"value": "@pipeline().parameters.Day",
+									"type": "Expression"
+								},
+								"Hour": {
+									"value": "@pipeline().parameters.Hour",
+									"type": "Expression"
+								}
 							}
 						}
 					},
-					"fieldList": [
-						"childItems"
-					],
-					"storeSettings": {
-						"type": "AzureBlobStorageReadSettings",
-						"enablePartitionDiscovery": false
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
 					},
-					"formatSettings": {
-						"type": "JsonReadSettings"
-					}
-				}
-			},
-			{
-				"name": "ForEach1",
-				"type": "ForEach",
-				"dependsOn": [
-					{
-						"activity": "Get Metadata1",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"userProperties": [],
-				"typeProperties": {
-					"items": {
-						"value": "@activity('Get Metadata1').output.childItems",
-						"type": "Expression"
-					}
+					"traceLevel": "Fine"
 				}
 			}
 		],
