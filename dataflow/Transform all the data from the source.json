@@ -142,7 +142,10 @@
 				"flatten4 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> sink1"
+				"     skipDuplicateMapOutputs: true,",
+				"     partitionBy('fixed', 2,",
+				"          ERROR_FUNCTION('')",
+				"     )) ~> sink1"
 			]
 		}
 	}
