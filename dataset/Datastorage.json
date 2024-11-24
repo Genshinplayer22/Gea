@@ -1,20 +1,17 @@
 {
-	"name": "DestinationDataset_i0v",
+	"name": "Datastorage",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureBlobStorage1",
 			"type": "LinkedServiceReference"
 		},
-		"folder": {
-			"name": "xu"
-		},
 		"annotations": [],
-		"type": "Binary",
+		"type": "Json",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobStorageLocation",
-				"container": "testcontainer"
+				"type": "AzureBlobStorageLocation"
 			}
-		}
+		},
+		"schema": {}
 	}
 }
