@@ -23,8 +23,7 @@
 				"defaultValue": "00"
 			},
 			"File": {
-				"type": "string",
-				"defaultValue": "01.json"
+				"type": "string"
 			}
 		},
 		"folder": {
