@@ -31,7 +31,7 @@
 			],
 			"scriptLines": [
 				"parameters{",
-				"     foreachConnectionID as string",
+				"     foreachConnectionID as string (connectionId)",
 				"}",
 				"source(allowSchemaDrift: true,",
 				"     validateSchema: false,",
