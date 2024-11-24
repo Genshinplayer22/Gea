@@ -68,7 +68,10 @@
 									"type": "DataFlowReference",
 									"datasetParameters": {
 										"source1": {
-											"year": "2022"
+											"year": {
+												"value": "@item().name",
+												"type": "Expression"
+											}
 										}
 									}
 								},
