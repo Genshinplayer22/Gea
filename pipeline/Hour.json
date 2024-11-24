@@ -68,6 +68,15 @@
 		"parameters": {
 			"Hour": {
 				"type": "string"
+			},
+			"Year": {
+				"type": "string"
+			},
+			"Month": {
+				"type": "string"
+			},
+			"Day": {
+				"type": "string"
 			}
 		},
 		"variables": {
@@ -75,6 +84,9 @@
 				"type": "String"
 			},
 			"Month": {
+				"type": "String"
+			},
+			"Day": {
 				"type": "String"
 			}
 		},
