@@ -18,7 +18,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "destinationDatasetJson",
+						"referenceName": "destinationDatasetCSV",
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
@@ -28,6 +28,9 @@
 				{
 					"name": "MapDrifted1",
 					"description": "Creates an explicit mapping for each drifted column"
+				},
+				{
+					"name": "select1"
 				}
 			],
 			"scriptLines": [
@@ -56,16 +59,27 @@
 				"          ncStartCounter = toString(byName('ncStartCounter')),",
 				"          schemaId = toString(byName('schemaId')),",
 				"          ts = toString(byName('ts'))) ~> MapDrifted1",
-				"MapDrifted1 sink(allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     input(",
-				"          ts as string,",
-				"          topicName as string,",
-				"          connectionDeviceId as string,",
-				"          connectionAuthMethod as string,",
-				"          connectionDeviceGenerationId as string,",
-				"          enqueuedTime as string",
+				"MapDrifted1 select(mapColumn(",
+				"          BAG1_opMode,",
+				"          Ch1_LineContent,",
+				"          Ch1_ProgPfadName,",
+				"          Ch1_TollIdent,",
+				"          Ch1_actSpeed_S1,",
+				"          E_ProgRunn,",
+				"          E_ProgWait,",
+				"          Eilgangoverride,",
+				"          EnqueuedTimeUtc,",
+				"          Spindeloverride,",
+				"          Vorschuboverride,",
+				"          actProgNetTime,",
+				"          ncStartCounter,",
+				"          schemaId,",
+				"          ts",
 				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"select1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
 				"     partitionBy('roundRobin', 2)) ~> sink1"
