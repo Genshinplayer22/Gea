@@ -1,6 +1,16 @@
 {
-	"name": "childpipeline1_copy2",
+	"name": "childpipeline3",
 	"properties": {
+		"parameters": {
+			"day": {
+				"type": "string"
+			}
+		},
+		"variables": {
+			"Year": {
+				"type": "String"
+			}
+		},
 		"annotations": []
 	}
 }

@@ -67,7 +67,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"pipeline": {
-									"referenceName": "childpipeline1",
+									"referenceName": "Year",
 									"type": "PipelineReference"
 								},
 								"waitOnCompletion": true,

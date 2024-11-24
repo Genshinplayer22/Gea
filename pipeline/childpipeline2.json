@@ -1,6 +1,16 @@
 {
 	"name": "childpipeline2",
 	"properties": {
+		"parameters": {
+			"Month": {
+				"type": "string"
+			}
+		},
+		"variables": {
+			"Year": {
+				"type": "String"
+			}
+		},
 		"annotations": []
 	}
 }
