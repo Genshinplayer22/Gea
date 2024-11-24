@@ -16,6 +16,16 @@
 				"userProperties": []
 			}
 		],
+		"parameters": {
+			"Year": {
+				"type": "string"
+			}
+		},
+		"variables": {
+			"Year": {
+				"type": "String"
+			}
+		},
 		"annotations": []
 	}
 }

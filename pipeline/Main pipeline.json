@@ -70,7 +70,13 @@
 									"referenceName": "childpipeline1",
 									"type": "PipelineReference"
 								},
-								"waitOnCompletion": true
+								"waitOnCompletion": true,
+								"parameters": {
+									"Year": {
+										"value": "@item().name",
+										"type": "Expression"
+									}
+								}
 							}
 						},
 						{
