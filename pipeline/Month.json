@@ -19,6 +19,9 @@
 		"parameters": {
 			"Month": {
 				"type": "string"
+			},
+			"Year": {
+				"type": "string"
 			}
 		},
 		"variables": {
