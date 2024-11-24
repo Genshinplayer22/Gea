@@ -124,6 +124,30 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
+								"dataflow": {
+									"referenceName": "Transform all the data from the source",
+									"type": "DataFlowReference",
+									"datasetParameters": {
+										"source1": {
+											"Year": {
+												"value": "@pipeline().parameters.Year",
+												"type": "Expression"
+											},
+											"Month": {
+												"value": "@pipeline().parameters.Month",
+												"type": "Expression"
+											},
+											"Day": {
+												"value": "@pipeline().parameters.Day",
+												"type": "Expression"
+											},
+											"Hour": {
+												"value": "@pipeline().parameters.Hour",
+												"type": "Expression"
+											}
+										}
+									}
+								},
 								"compute": {
 									"coreCount": 8,
 									"computeType": "General"
