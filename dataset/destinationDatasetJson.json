@@ -1,0 +1,44 @@
+{
+	"name": "destinationDatasetJson",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "rkp"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "Grouped data",
+				"container": "testcontainer"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"ts": {
+					"type": "string"
+				},
+				"topicName": {
+					"type": "string"
+				},
+				"connectionDeviceId": {
+					"type": "string"
+				},
+				"connectionAuthMethod": {
+					"type": "string"
+				},
+				"connectionDeviceGenerationId": {
+					"type": "string"
+				},
+				"enqueuedTime": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}
