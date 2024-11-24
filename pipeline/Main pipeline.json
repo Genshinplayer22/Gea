@@ -18,13 +18,17 @@
 				"typeProperties": {
 					"dataset": {
 						"referenceName": "Root",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"Year": "2022"
+						}
 					},
 					"fieldList": [
 						"childItems"
 					],
 					"storeSettings": {
 						"type": "AzureBlobStorageReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
