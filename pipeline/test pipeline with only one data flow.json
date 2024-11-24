@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "Template",
+						"referenceName": "rkp",
 						"type": "DataFlowReference"
 					},
 					"compute": {
