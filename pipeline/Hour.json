@@ -73,6 +73,9 @@
 		"variables": {
 			"Year": {
 				"type": "String"
+			},
+			"Month": {
+				"type": "String"
 			}
 		},
 		"folder": {
