@@ -1,0 +1,63 @@
+{
+	"name": "test_dataflow",
+	"properties": {
+		"folder": {
+			"name": "New folder"
+		},
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "SourceDataset_wh9",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "split1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          EnqueuedTimeUtc as string,",
+				"          Properties as ({} as string),",
+				"          SystemProperties as (connectionDeviceId as string, connectionAuthMethod as string, connectionDeviceGenerationId as string, enqueuedTime as string),",
+				"          Body as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     documentForm: 'documentPerLine') ~> source1",
+				"source1 split(SystemProperties.connectionDeviceId == \"berlin-14498\",",
+				"     SystemProperties.connectionDeviceId == \"berlin-380073\",",
+				"     SystemProperties.connectionDeviceId == \"berlin-650085\",",
+				"     SystemProperties.connectionDeviceId == \"berlin-771215\",",
+				"     SystemProperties.connectionDeviceId == \"buechen-71122\",",
+				"     SystemProperties.connectionDeviceId == \"buechen-71286\",",
+				"     SystemProperties.connectionDeviceId == \"buechen-71446\",",
+				"     SystemProperties.connectionDeviceId == \"buechen-77813\",",
+				"     SystemProperties.connectionDeviceId == \"niederahr-15310524\",",
+				"     SystemProperties.connectionDeviceId == \"niederahr-15311406\",",
+				"     SystemProperties.connectionDeviceId == \"oelde-11317\",",
+				"     SystemProperties.connectionDeviceId == \"oelde-11318\",",
+				"     SystemProperties.connectionDeviceId == \"oelde-13102\",",
+				"     SystemProperties.connectionDeviceId == \"oelde-13103\",",
+				"     SystemProperties.connectionDeviceId == \"oelde-13402\",",
+				"     SystemProperties.connectionDeviceId == \"oelde-13403\",",
+				"     SystemProperties.connectionDeviceId == \"oelde-15401\",",
+				"     SystemProperties.connectionDeviceId == \"oelde-35116\",",
+				"     SystemProperties.connectionDeviceId == \"oelde-36100\",",
+				"     SystemProperties.connectionDeviceId == \"oelde-36102\",",
+				"     SystemProperties.connectionDeviceId == \"oelde-57130\"\r",
+				",",
+				"     SystemProperties.connectionDeviceId == \"oelde-11319\",",
+				"     SystemProperties.connectionDeviceId == \"oelde-36103\",",
+				"     disjoint: false) ~> split1@(berlin14498, berlin380073, berlin650085, berlin771215, buechen71122, buechen71286, buechen71446, buechen77813, niederahr15310524, niederahr15311406, oelde11317, oelde11318, oelde13102, oelde13103, oelde13402, oelde13403, oelde15401, oelde35116, oelde36100, oelde36102, oelde57130, oelde11319, oelde36103)"
+			]
+		}
+	}
+}
