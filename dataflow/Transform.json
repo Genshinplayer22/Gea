@@ -9,7 +9,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "Hour",
+						"referenceName": "File",
 						"type": "DatasetReference"
 					},
 					"name": "source1"
@@ -46,13 +46,7 @@
 				}
 			],
 			"scriptLines": [
-				"source(output(",
-				"          EnqueuedTimeUtc as string,",
-				"          Properties as ({} as string),",
-				"          SystemProperties as (connectionDeviceId as string, connectionAuthMethod as string, connectionDeviceGenerationId as string, enqueuedTime as string),",
-				"          Body as string",
-				"     ),",
-				"     allowSchemaDrift: true,",
+				"source(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     limit: 10,",
 				"     ignoreNoFilesFound: false,",
