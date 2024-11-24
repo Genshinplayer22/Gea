@@ -85,51 +85,19 @@
 									"type": "DataFlowReference",
 									"datasetParameters": {
 										"source1": {
-											"Year": {
-												"value": "@pipeline().parameters.Year",
-												"type": "Expression"
-											},
-											"Month": {
-												"value": "@pipeline().parameters.Month",
-												"type": "Expression"
-											},
-											"Day": {
-												"value": "@pipeline().parameters.Day",
-												"type": "Expression"
-											},
-											"Hour": {
-												"value": "@pipeline().parameters.Hour",
-												"type": "Expression"
-											},
-											"File": {
-												"value": "@item().name",
-												"type": "Expression"
-											}
+											"Year": "2022",
+											"Month": "01",
+											"Day": "01",
+											"Hour": "00"
 										}
 									},
 									"linkedServiceParameters": {
 										"source1": {
 											"schemaLinkedService": {
-												"Year": {
-													"value": "@pipeline().parameters.Year",
-													"type": "Expression"
-												},
-												"Month": {
-													"value": "@pipeline().parameters.Month",
-													"type": "Expression"
-												},
-												"Day": {
-													"value": "@pipeline().parameters.Day",
-													"type": "Expression"
-												},
-												"Hour": {
-													"value": "@pipeline().parameters.Hour",
-													"type": "Expression"
-												},
-												"File": {
-													"value": "@item().name",
-													"type": "Expression"
-												}
+												"Year": "2022",
+												"Month": "01",
+												"Day": "01",
+												"Hour": "00"
 											}
 										}
 									}
