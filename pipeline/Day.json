@@ -67,8 +67,11 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"variableName": "Hour",
-								"value": ""
+								"variableName": "Day",
+								"value": {
+									"value": "@item().name",
+									"type": "Expression"
+								}
 							}
 						},
 						{
