@@ -119,6 +119,9 @@
 			},
 			"Day": {
 				"type": "String"
+			},
+			"Hour": {
+				"type": "String"
 			}
 		},
 		"folder": {

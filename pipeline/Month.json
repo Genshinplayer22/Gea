@@ -117,9 +117,6 @@
 			},
 			"Year": {
 				"type": "string"
-			},
-			"Day": {
-				"type": "string"
 			}
 		},
 		"variables": {
@@ -130,6 +127,9 @@
 				"type": "String"
 			},
 			"Day": {
+				"type": "String"
+			},
+			"Hour": {
 				"type": "String"
 			}
 		},
