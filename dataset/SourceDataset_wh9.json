@@ -5,12 +5,15 @@
 			"referenceName": "AzureBlobStorage1",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "xu"
+		},
 		"annotations": [],
 		"type": "Json",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"folderPath": "00/2022/2022/01",
+				"folderPath": "00/2022/2022/01/01/00",
 				"container": "machinedata"
 			},
 			"encodingName": "UTF-8"

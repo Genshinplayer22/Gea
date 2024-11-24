@@ -5,6 +5,9 @@
 			"referenceName": "JSONBlobStorage1",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "xu"
+		},
 		"annotations": [],
 		"type": "Json",
 		"typeProperties": {
