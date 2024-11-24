@@ -34,7 +34,9 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "@dataset().Filename"
+				"fileName": "@dataset().Filename",
+				"folderPath": "@concat('00/2022/',dataset().Year,'/',dataset().Month,'/',dataset().Day,'/',dataset().Hour,'/')",
+				"container": "machinedata"
 			}
 		},
 		"schema": {}

@@ -21,9 +21,6 @@
 			"Hour": {
 				"type": "string",
 				"defaultValue": "00"
-			},
-			"Filename": {
-				"type": "string"
 			}
 		},
 		"folder": {
