@@ -1,5 +1,5 @@
 {
-	"name": "Year",
+	"name": "Hour",
 	"properties": {
 		"activities": [
 			{
@@ -66,7 +66,7 @@
 			}
 		],
 		"parameters": {
-			"Year": {
+			"Hour": {
 				"type": "string"
 			}
 		},

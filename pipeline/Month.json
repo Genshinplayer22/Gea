@@ -1,8 +1,8 @@
 {
-	"name": "Day",
+	"name": "Month",
 	"properties": {
 		"parameters": {
-			"Day": {
+			"Month": {
 				"type": "string"
 			}
 		},
