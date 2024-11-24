@@ -22,6 +22,14 @@
 							"Year": {
 								"value": "@pipeline().parameters.Year",
 								"type": "Expression"
+							},
+							"Month": {
+								"value": "@pipeline().parameters.Month",
+								"type": "Expression"
+							},
+							"Day": {
+								"value": "@pipeline().parameters.Day",
+								"type": "Expression"
 							}
 						}
 					},
@@ -33,6 +41,56 @@
 					"formatSettings": {
 						"type": "JsonReadSettings"
 					}
+				}
+			},
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "Get Metadata1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"activities": [
+						{
+							"name": "Set variable1",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "Hour",
+								"value": ""
+							}
+						},
+						{
+							"name": "Execute Pipeline1",
+							"type": "ExecutePipeline",
+							"dependsOn": [
+								{
+									"activity": "Set variable1",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"waitOnCompletion": true
+							}
+						}
+					]
 				}
 			}
 		],
@@ -55,6 +113,9 @@
 				"type": "String"
 			},
 			"Day": {
+				"type": "String"
+			},
+			"Hour": {
 				"type": "String"
 			}
 		},
