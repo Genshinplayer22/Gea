@@ -17,7 +17,25 @@
 				"typeProperties": {
 					"dataset": {
 						"referenceName": "Hour",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"Year": {
+								"value": "@pipeline().parameters.Year",
+								"type": "Expression"
+							},
+							"Month": {
+								"value": "@pipeline().parameters.Month",
+								"type": "Expression"
+							},
+							"Day": {
+								"value": "@pipeline().parameters.Day",
+								"type": "Expression"
+							},
+							"Hour": {
+								"value": "@pipeline().parameters.Hour",
+								"type": "Expression"
+							}
+						}
 					},
 					"fieldList": [
 						"childItems"
@@ -55,7 +73,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"pipeline": {
-									"referenceName": "Month",
+									"referenceName": "li",
 									"type": "PipelineReference"
 								},
 								"waitOnCompletion": true
