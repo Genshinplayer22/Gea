@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "Template_copy1",
+						"referenceName": "Transform all the data from the source",
 						"type": "DataFlowReference",
 						"datasetParameters": {
 							"source1": {
