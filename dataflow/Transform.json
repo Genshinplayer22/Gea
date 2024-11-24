@@ -47,10 +47,9 @@
 			],
 			"scriptLines": [
 				"source(output(",
+				"          Body as string,",
 				"          EnqueuedTimeUtc as string,",
-				"          Properties as ({} as string),",
-				"          SystemProperties as (connectionDeviceId as string, connectionAuthMethod as string, connectionDeviceGenerationId as string, enqueuedTime as string),",
-				"          Body as string",
+				"          SystemProperties as (connectionAuthMethod as string, connectionDeviceGenerationId as long, connectionDeviceId as string, enqueuedTime as string)",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
