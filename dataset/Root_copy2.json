@@ -1,0 +1,24 @@
+{
+	"name": "Root_copy2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"Year": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "00/2022",
+				"container": "machinedata"
+			}
+		},
+		"schema": {}
+	}
+}
