@@ -42,11 +42,15 @@
 				}
 			],
 			"scriptLines": [
-				"source(allowSchemaDrift: true,",
+				"source(output(",
+				"          Body as string,",
+				"          EnqueuedTimeUtc as string,",
+				"          SystemProperties as (connectionAuthMethod as string, connectionDeviceGenerationId as long, connectionDeviceId as string, enqueuedTime as string)",
+				"     ),",
+				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     limit: 10,",
 				"     ignoreNoFilesFound: false,",
-				"     partitionRootPath: '00/2022',",
 				"     documentForm: 'documentPerLine') ~> source1",
 				"source1 derive(decoded_Body = array(fromBase64(Body))) ~> derivedColumn1",
 				"derivedColumn1 select(mapColumn(",
