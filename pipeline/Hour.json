@@ -129,21 +129,17 @@
 									"type": "DataFlowReference",
 									"datasetParameters": {
 										"source1": {
-											"Year": {
-												"value": "@pipeline().parameters.Year",
-												"type": "Expression"
-											},
-											"Month": {
-												"value": "@pipeline().parameters.Month",
-												"type": "Expression"
-											},
-											"Day": {
-												"value": "@pipeline().parameters.Day",
-												"type": "Expression"
-											},
-											"Hour": {
-												"value": "@pipeline().parameters.Hour",
-												"type": "Expression"
+											"Year": "2022",
+											"Month": "01",
+											"Day": "01"
+										}
+									},
+									"linkedServiceParameters": {
+										"source1": {
+											"schemaLinkedService": {
+												"Year": "2022",
+												"Month": "01",
+												"Day": "01"
 											}
 										}
 									}
