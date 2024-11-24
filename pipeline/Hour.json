@@ -17,27 +17,7 @@
 				"typeProperties": {
 					"dataflow": {
 						"referenceName": "Template_copy1",
-						"type": "DataFlowReference",
-						"datasetParameters": {
-							"source1": {
-								"Year": {
-									"value": "@pipeline().parameters.Year",
-									"type": "Expression"
-								},
-								"Month": {
-									"value": "@pipeline().parameters.Month",
-									"type": "Expression"
-								},
-								"Day": {
-									"value": "@pipeline().parameters.Day",
-									"type": "Expression"
-								},
-								"Hour": {
-									"value": "@pipeline().parameters.Hour",
-									"type": "Expression"
-								}
-							}
-						}
+						"type": "DataFlowReference"
 					},
 					"compute": {
 						"coreCount": 8,
