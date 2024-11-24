@@ -17,7 +17,13 @@
 				"typeProperties": {
 					"dataset": {
 						"referenceName": "Year",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"Year": {
+								"value": "@pipeline().parameters.Year",
+								"type": "Expression"
+							}
+						}
 					},
 					"fieldList": [
 						"childItems"

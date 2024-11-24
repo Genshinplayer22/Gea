@@ -8,6 +8,9 @@
 		"parameters": {
 			"Year": {
 				"type": "string"
+			},
+			"Month": {
+				"type": "string"
 			}
 		},
 		"annotations": [],
