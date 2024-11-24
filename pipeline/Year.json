@@ -94,32 +94,6 @@
 									"type": "Expression"
 								}
 							}
-						},
-						{
-							"name": "Execute Pipeline1_copy1",
-							"type": "ExecutePipeline",
-							"dependsOn": [],
-							"policy": {
-								"secureInput": false
-							},
-							"userProperties": [],
-							"typeProperties": {
-								"pipeline": {
-									"referenceName": "Month",
-									"type": "PipelineReference"
-								},
-								"waitOnCompletion": true,
-								"parameters": {
-									"Month": {
-										"value": "@item().name",
-										"type": "Expression"
-									},
-									"Year": {
-										"value": "@pipeline().parameters.Year",
-										"type": "Expression"
-									}
-								}
-							}
 						}
 					]
 				}
@@ -135,6 +109,9 @@
 				"type": "String"
 			},
 			"Month": {
+				"type": "String"
+			},
+			"Day": {
 				"type": "String"
 			}
 		},
