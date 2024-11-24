@@ -7,16 +7,20 @@
 		},
 		"parameters": {
 			"Year": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "2022"
 			},
 			"Month": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "01"
 			},
 			"Day": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "01"
 			},
 			"Hour": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "00"
 			}
 		},
 		"folder": {

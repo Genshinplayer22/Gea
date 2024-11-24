@@ -7,10 +7,12 @@
 		},
 		"parameters": {
 			"Year": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "2022"
 			},
 			"Month": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "01"
 			}
 		},
 		"folder": {
