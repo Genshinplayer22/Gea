@@ -1,5 +1,5 @@
 {
-	"name": "Root_copy3",
+	"name": "Day",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureBlobStorage1",

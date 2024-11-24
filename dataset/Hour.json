@@ -1,5 +1,5 @@
 {
-	"name": "Month",
+	"name": "Hour",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureBlobStorage1",
@@ -15,7 +15,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"folderPath": "00/2022",
+				"folderPath": {
+					"value": "@00/2022/dataset().Year",
+					"type": "Expression"
+				},
 				"container": "machinedata"
 			}
 		},

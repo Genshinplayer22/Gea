@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "Root_copy1",
+						"referenceName": "Year",
 						"type": "DatasetReference"
 					},
 					"fieldList": [
