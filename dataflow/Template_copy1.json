@@ -9,7 +9,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "Datastorage",
+						"referenceName": "Hour",
 						"type": "DatasetReference"
 					},
 					"name": "source1"
