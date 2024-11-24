@@ -54,14 +54,7 @@
 						{
 							"name": "Execute Pipeline1",
 							"type": "ExecutePipeline",
-							"dependsOn": [
-								{
-									"activity": "Set variable1",
-									"dependencyConditions": [
-										"Succeeded"
-									]
-								}
-							],
+							"dependsOn": [],
 							"policy": {
 								"secureInput": false
 							},
@@ -81,23 +74,6 @@
 										"value": "@pipeline().parameters.Year",
 										"type": "Expression"
 									}
-								}
-							}
-						},
-						{
-							"name": "Set variable1",
-							"type": "SetVariable",
-							"dependsOn": [],
-							"policy": {
-								"secureOutput": false,
-								"secureInput": false
-							},
-							"userProperties": [],
-							"typeProperties": {
-								"variableName": "Month",
-								"value": {
-									"value": "@item().name",
-									"type": "Expression"
 								}
 							}
 						}
