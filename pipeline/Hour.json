@@ -88,7 +88,14 @@
 											"Year": "2022",
 											"Month": "01",
 											"Day": "01",
-											"Hour": "00"
+											"Hour": {
+												"value": "@pipeline().parameters.Hour",
+												"type": "Expression"
+											},
+											"Filename": {
+												"value": "@item().name",
+												"type": "Expression"
+											}
 										}
 									}
 								},
