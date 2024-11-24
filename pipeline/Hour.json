@@ -115,6 +115,10 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
+								"dataflow": {
+									"referenceName": "grouping_pipeline",
+									"type": "DataFlowReference"
+								},
 								"compute": {
 									"coreCount": 8,
 									"computeType": "General"
