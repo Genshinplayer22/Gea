@@ -10,6 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
+				"folderPath": "00/2022/2022",
 				"container": "machinedata"
 			}
 		},
