@@ -75,6 +75,10 @@
 									"Year": {
 										"value": "@pipeline().parameters.Year",
 										"type": "Expression"
+									},
+									"Month": {
+										"value": "@pipeline().parameters.Month",
+										"type": "Expression"
 									}
 								}
 							}

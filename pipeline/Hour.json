@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "Year",
+						"referenceName": "Hour",
 						"type": "DatasetReference"
 					},
 					"fieldList": [
