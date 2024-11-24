@@ -126,7 +126,23 @@
 							"typeProperties": {
 								"dataflow": {
 									"referenceName": "Transform all the data from the source",
-									"type": "DataFlowReference"
+									"type": "DataFlowReference",
+									"datasetParameters": {
+										"source1": {
+											"Year": "2022",
+											"Month": "01",
+											"Day": "01"
+										}
+									},
+									"linkedServiceParameters": {
+										"source1": {
+											"schemaLinkedService": {
+												"Year": "2022",
+												"Month": "01",
+												"Day": "01"
+											}
+										}
+									}
 								},
 								"compute": {
 									"coreCount": 8,
