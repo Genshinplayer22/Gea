@@ -8,6 +8,12 @@
 		"parameters": {
 			"Year": {
 				"type": "string"
+			},
+			"Month": {
+				"type": "string"
+			},
+			"Day": {
+				"type": "string"
 			}
 		},
 		"annotations": [],
@@ -15,7 +21,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"folderPath": "00/2022",
+				"folderPath": {
+					"value": "@00/2022/dataset().Year/dataset().Month/dataset().Day",
+					"type": "Expression"
+				},
 				"container": "machinedata"
 			}
 		},
