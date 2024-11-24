@@ -145,6 +145,7 @@
 				"     skipDuplicateMapOutputs: true) ~> flatten4",
 				"flatten4 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
+				"     rowUrlColumn:'ts',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> sink1"
 			]
