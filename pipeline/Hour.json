@@ -112,7 +112,10 @@
 							"typeProperties": {
 								"dataflow": {
 									"referenceName": "grouping pipeline",
-									"type": "DataFlowReference"
+									"type": "DataFlowReference",
+									"parameters": {
+										"foreachConnectionID": "connectionDeviceId"
+									}
 								},
 								"compute": {
 									"coreCount": 8,
