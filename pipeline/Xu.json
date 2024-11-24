@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "Parent",
+						"referenceName": "Datastorage",
 						"type": "DatasetReference"
 					},
 					"fieldList": [
