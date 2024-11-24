@@ -131,7 +131,8 @@
 										"source1": {
 											"Year": "2022",
 											"Month": "01",
-											"Day": "01"
+											"Day": "01",
+											"Hour": "00"
 										}
 									},
 									"linkedServiceParameters": {
@@ -139,7 +140,8 @@
 											"schemaLinkedService": {
 												"Year": "2022",
 												"Month": "01",
-												"Day": "01"
+												"Day": "01",
+												"Hour": "00"
 											}
 										}
 									}
