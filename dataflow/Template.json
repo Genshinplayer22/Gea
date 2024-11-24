@@ -9,7 +9,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "Datastorage",
+						"referenceName": "Datastorage_for_wildcard",
 						"type": "DatasetReference"
 					},
 					"name": "source1"

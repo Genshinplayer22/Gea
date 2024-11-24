@@ -1,5 +1,5 @@
 {
-	"name": "Datastorage",
+	"name": "Datastorage_for_wildcard",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureBlobStorage1",
