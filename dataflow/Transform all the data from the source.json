@@ -46,12 +46,7 @@
 				}
 			],
 			"scriptLines": [
-				"source(output(",
-				"          Body as string,",
-				"          EnqueuedTimeUtc as string,",
-				"          SystemProperties as (connectionAuthMethod as string, connectionDeviceGenerationId as long, connectionDeviceId as string, enqueuedTime as string)",
-				"     ),",
-				"     allowSchemaDrift: true,",
+				"source(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     limit: 10,",
 				"     ignoreNoFilesFound: false,",
