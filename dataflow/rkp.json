@@ -15,9 +15,9 @@
 					"name": "source2"
 				},
 				{
-					"dataset": {
-						"referenceName": "sourceDatasetjson_2",
-						"type": "DatasetReference"
+					"linkedService": {
+						"referenceName": "AzureBlobStorage1",
+						"type": "LinkedServiceReference"
 					},
 					"name": "source3"
 				}
@@ -34,6 +34,10 @@
 			"transformations": [
 				{
 					"name": "select3"
+				},
+				{
+					"name": "MapDrifted1",
+					"description": "Creates an explicit mapping for each drifted column"
 				}
 			],
 			"scriptLines": [
@@ -64,12 +68,15 @@
 				"     container: 'machinedata',",
 				"     documentForm: 'documentPerLine',",
 				"     wildcardPaths:['00/2022/2022/06/14/16/00.json']) ~> source2",
-				"source(allowSchemaDrift: true,",
+				"source(useSchema: false,",
+				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     inferDriftedColumnTypes: true,",
 				"     ignoreNoFilesFound: false,",
+				"     format: 'json',",
+				"     container: 'machinedata',",
 				"     documentForm: 'documentPerLine',",
-				"     wildcardPaths:['00/2022/2022/03/11/08/*.json']) ~> source3",
+				"     wildcardPaths:['00/2022/2022/03/11/08/00.json']) ~> source3",
 				"source2 select(mapColumn(",
 				"          BAG1_opMode,",
 				"          Ch1_LineContent,",
@@ -93,6 +100,8 @@
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> select3",
+				"source3 derive(Body = toString(byName('Body')),",
+				"          EnqueuedTimeUtc = toString(byName('EnqueuedTimeUtc'))) ~> MapDrifted1",
 				"select3 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     skipDuplicateMapInputs: true,",
