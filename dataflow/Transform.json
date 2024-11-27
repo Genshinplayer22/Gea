@@ -167,7 +167,6 @@
 				"          schemaId as string,",
 				"          ts as string",
 				"     ),",
-				"     rowUrlColumn:'ts',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> sink1"
 			]
