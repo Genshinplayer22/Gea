@@ -1,0 +1,53 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"folder": {
+			"name": "New folder"
+		},
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"linkedService": {
+						"referenceName": "AzureBlobStorage1",
+						"type": "LinkedServiceReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "destinationDatasetJson",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [],
+			"scriptLines": [
+				"source(useSchema: false,",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'json',",
+				"     container: 'machinedata',",
+				"     documentForm: 'documentPerLine',",
+				"     wildcardPaths:['00/2022/2022/01/01/00/*.json'],",
+				"     partitionBy('roundRobin', 2)) ~> source1",
+				"source1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          ts as string,",
+				"          topicName as string,",
+				"          connectionDeviceId as string,",
+				"          connectionAuthMethod as string,",
+				"          connectionDeviceGenerationId as string,",
+				"          enqueuedTime as string",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
+			]
+		}
+	}
+}
