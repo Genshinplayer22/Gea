@@ -1,0 +1,103 @@
+{
+	"name": "DelimitedText1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "xu"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "Grouped data",
+				"container": "testcontainer"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "BAG1_opMode",
+				"type": "String"
+			},
+			{
+				"name": "Ch1_LineContent",
+				"type": "String"
+			},
+			{
+				"name": "Ch1_ProgPfadName",
+				"type": "String"
+			},
+			{
+				"name": "Ch1_TollIdent",
+				"type": "String"
+			},
+			{
+				"name": "Ch1_actSpeed_S1",
+				"type": "String"
+			},
+			{
+				"name": "E_ProgRunn",
+				"type": "String"
+			},
+			{
+				"name": "E_ProgWait",
+				"type": "String"
+			},
+			{
+				"name": "Eilgangoverride",
+				"type": "String"
+			},
+			{
+				"name": "EnqueuedTimeUtc",
+				"type": "String"
+			},
+			{
+				"name": "Spindeloverride",
+				"type": "String"
+			},
+			{
+				"name": "connectionAuthMehtod",
+				"type": "String"
+			},
+			{
+				"name": "connectionDeviceGenerationId",
+				"type": "String"
+			},
+			{
+				"name": "connectionDeviceId",
+				"type": "String"
+			},
+			{
+				"name": "enqueuedTime",
+				"type": "String"
+			},
+			{
+				"name": "Vorschuboverride",
+				"type": "String"
+			},
+			{
+				"name": "actProgNetTime",
+				"type": "String"
+			},
+			{
+				"name": "ncStartCounter",
+				"type": "String"
+			},
+			{
+				"name": "schemaId",
+				"type": "String"
+			},
+			{
+				"name": "ts",
+				"type": "String"
+			}
+		]
+	}
+}
