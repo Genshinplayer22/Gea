@@ -17,10 +17,7 @@
 				"typeProperties": {
 					"dataflow": {
 						"referenceName": "rkp",
-						"type": "DataFlowReference",
-						"parameters": {
-							"foreachConnectionID": "connectionDeviceId"
-						}
+						"type": "DataFlowReference"
 					},
 					"compute": {
 						"coreCount": 8,
