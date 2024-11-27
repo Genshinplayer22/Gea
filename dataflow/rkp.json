@@ -15,7 +15,15 @@
 					"name": "source2"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "destinationDatasetCSV",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
 			"transformations": [
 				{
 					"name": "select3"
@@ -48,8 +56,7 @@
 				"     format: 'json',",
 				"     container: 'machinedata',",
 				"     documentForm: 'documentPerLine',",
-				"     wildcardPaths:['00/2022/2022/01/01/00/*.json'],",
-				"     partitionBy('roundRobin', 2)) ~> source2",
+				"     wildcardPaths:['00/2022/2022/01/01/00/*.json']) ~> source2",
 				"source2 select(mapColumn(",
 				"          BAG1_opMode,",
 				"          Ch1_LineContent,",
@@ -72,7 +79,11 @@
 				"          ts",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> select3"
+				"     skipDuplicateMapOutputs: true) ~> select3",
+				"select3 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
 			]
 		}
 	}
