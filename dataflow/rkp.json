@@ -13,6 +13,13 @@
 						"type": "LinkedServiceReference"
 					},
 					"name": "source2"
+				},
+				{
+					"linkedService": {
+						"referenceName": "AzureBlobStorage1",
+						"type": "LinkedServiceReference"
+					},
+					"name": "source3"
 				}
 			],
 			"sinks": [
@@ -56,7 +63,35 @@
 				"     format: 'json',",
 				"     container: 'machinedata',",
 				"     documentForm: 'documentPerLine',",
-				"     wildcardPaths:['00/2022/2022/06/14/16/*.json']) ~> source2",
+				"     wildcardPaths:['00/2022/2022/06/14/16/00.json']) ~> source2",
+				"source(output(",
+				"          BAG1_opMode as short,",
+				"          Body as string,",
+				"          Ch1_LineContent as string,",
+				"          Ch1_ProgPfadName as string,",
+				"          Ch1_TollIdent as string,",
+				"          Ch1_actSpeed_S1 as boolean,",
+				"          E_ProgRunn as boolean,",
+				"          E_ProgWait as boolean,",
+				"          Eilgangoverride as short,",
+				"          EnqueuedTimeUtc as string,",
+				"          Spindeloverride as short,",
+				"          SystemProperties as (connectionAuthMethod as string, connectionDeviceGenerationId as long, connectionDeviceId as string, enqueuedTime as string),",
+				"          Vorschuboverride as short,",
+				"          actProgNetTime as short,",
+				"          ncStartCounter as short,",
+				"          schemaId as string,",
+				"          ts as string",
+				"     ),",
+				"     useSchema: false,",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     inferDriftedColumnTypes: true,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'json',",
+				"     container: 'machinedata',",
+				"     documentForm: 'documentPerLine',",
+				"     wildcardPaths:['00/2022/2022/03/11/00/*.json']) ~> source3",
 				"source2 select(mapColumn(",
 				"          BAG1_opMode,",
 				"          Ch1_LineContent,",
