@@ -13,7 +13,6 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "part-00000-02a7f519-cc6c-40f6-8fdd-8a1a52446da1-c000.json",
 				"folderPath": "Grouped data",
 				"container": "testcontainer"
 			}
