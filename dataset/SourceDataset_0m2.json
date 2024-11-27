@@ -1,0 +1,51 @@
+{
+	"name": "SourceDataset_0m2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "19.json",
+				"folderPath": "00/2022/2022/07/09/04",
+				"container": "machinedata"
+			},
+			"encodingName": "UTF-8"
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"EnqueuedTimeUtc": {
+					"type": "string"
+				},
+				"Properties": {
+					"type": "object"
+				},
+				"SystemProperties": {
+					"type": "object",
+					"properties": {
+						"connectionDeviceId": {
+							"type": "string"
+						},
+						"connectionAuthMethod": {
+							"type": "string"
+						},
+						"connectionDeviceGenerationId": {
+							"type": "string"
+						},
+						"enqueuedTime": {
+							"type": "string"
+						}
+					}
+				},
+				"Body": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}

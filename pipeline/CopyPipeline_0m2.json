@@ -1,0 +1,127 @@
+{
+	"name": "CopyPipeline_0m2",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_0m2",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "machinedata/00/2022/2022/07/09/04/19.json"
+					},
+					{
+						"name": "Destination",
+						"value": "testcontainer/Grouped data/test_27_11/test_json_1"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": false,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "JsonReadSettings"
+						}
+					},
+					"sink": {
+						"type": "JsonSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings",
+							"copyBehavior": "FlattenHierarchy"
+						},
+						"formatSettings": {
+							"type": "JsonWriteSettings"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['EnqueuedTimeUtc']"
+								},
+								"sink": {
+									"path": "$['EnqueuedTimeUtc']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Properties']"
+								},
+								"sink": {
+									"path": "$['Properties']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['SystemProperties']['connectionDeviceId']"
+								},
+								"sink": {
+									"path": "$['SystemProperties']['connectionDeviceId']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['SystemProperties']['connectionAuthMethod']"
+								},
+								"sink": {
+									"path": "$['SystemProperties']['connectionAuthMethod']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['SystemProperties']['connectionDeviceGenerationId']"
+								},
+								"sink": {
+									"path": "$['SystemProperties']['connectionDeviceGenerationId']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['SystemProperties']['enqueuedTime']"
+								},
+								"sink": {
+									"path": "$['SystemProperties']['enqueuedTime']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['Body']"
+								},
+								"sink": {
+									"path": "$['Body']"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_0m2",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_0m2",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
