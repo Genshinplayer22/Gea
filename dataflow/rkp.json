@@ -66,7 +66,7 @@
 				"     format: 'json',",
 				"     container: 'machinedata',",
 				"     documentForm: 'documentPerLine',",
-				"     wildcardPaths:['00/2022/2022/01/01/00/*.json'],",
+				"     wildcardPaths:['00/2022/2022/01/01/02/*.json'],",
 				"     partitionBy('roundRobin', 2)) ~> source2",
 				"source2 select(mapColumn(",
 				"          BAG1_opMode,",
@@ -94,7 +94,7 @@
 				"select3 filter(connectionDeviceId == $foreachConnectionID) ~> filter1",
 				"filter1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     filePattern:'part[n].csv',",
+				"     filePattern:'ConnectionDeviceId[n].csv',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
 				"     saveOrder: 1) ~> sink1"
