@@ -56,7 +56,7 @@
 				"     format: 'json',",
 				"     container: 'machinedata',",
 				"     documentForm: 'documentPerLine',",
-				"     wildcardPaths:['00/2022/2022/01/01/00/*.json']) ~> source2",
+				"     wildcardPaths:['00/2022/2022/01/13/00/*.json']) ~> source2",
 				"source2 select(mapColumn(",
 				"          BAG1_opMode,",
 				"          Ch1_LineContent,",
