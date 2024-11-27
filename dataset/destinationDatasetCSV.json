@@ -17,9 +17,10 @@
 				"container": "testcontainer"
 			},
 			"columnDelimiter": ";",
-			"escapeChar": "\\",
+			"escapeChar": "\"",
 			"firstRowAsHeader": true,
-			"quoteChar": null
+			"nullValue": "\\N",
+			"quoteChar": "\""
 		},
 		"schema": []
 	}
