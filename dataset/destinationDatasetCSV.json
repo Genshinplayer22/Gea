@@ -16,7 +16,7 @@
 				"folderPath": "Grouped data/test_27_11",
 				"container": "testcontainer"
 			},
-			"columnDelimiter": ",",
+			"columnDelimiter": ";",
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
 			"quoteChar": null
