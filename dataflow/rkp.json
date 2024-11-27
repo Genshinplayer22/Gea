@@ -31,9 +31,6 @@
 			"transformations": [
 				{
 					"name": "select3"
-				},
-				{
-					"name": "filter1"
 				}
 			],
 			"scriptLines": [
@@ -91,10 +88,8 @@
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> select3",
-				"select3 filter(connectionDeviceId == $foreachConnectionID) ~> filter1",
-				"filter1 sink(allowSchemaDrift: true,",
+				"select3 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     filePattern:'ConnectionDeviceId[n].csv',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
 				"     saveOrder: 1) ~> sink1"
