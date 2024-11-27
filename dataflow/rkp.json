@@ -97,7 +97,7 @@
 				"     format: 'delimited',",
 				"     container: 'testcontainer',",
 				"     folderPath: 'Grouped data',",
-				"     columnDelimiter: ',',",
+				"     columnDelimiter: '|',",
 				"     escapeChar: '\\\\',",
 				"     quoteChar: '\\\"',",
 				"     columnNamesAsHeader: true,",
