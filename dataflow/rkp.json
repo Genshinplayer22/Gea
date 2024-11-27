@@ -17,9 +17,9 @@
 			],
 			"sinks": [
 				{
-					"dataset": {
-						"referenceName": "destinationDatasetCSV",
-						"type": "DatasetReference"
+					"linkedService": {
+						"referenceName": "AzureBlobStorage1",
+						"type": "LinkedServiceReference"
 					},
 					"name": "sink1",
 					"rejectedDataLinkedService": {
@@ -94,6 +94,13 @@
 				"select3 filter(connectionDeviceId == $foreachConnectionID) ~> filter1",
 				"filter1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
+				"     format: 'delimited',",
+				"     container: 'testcontainer',",
+				"     folderPath: 'Grouped data',",
+				"     columnDelimiter: ',',",
+				"     escapeChar: '\\\\',",
+				"     quoteChar: '\\\"',",
+				"     columnNamesAsHeader: true,",
 				"     rowUrlColumn:'connectionDeviceId',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
