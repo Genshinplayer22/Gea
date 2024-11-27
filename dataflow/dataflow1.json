@@ -18,7 +18,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "destinationDatasetJson",
+						"referenceName": "destinationDatasetCSV",
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
@@ -33,18 +33,10 @@
 				"     format: 'json',",
 				"     container: 'machinedata',",
 				"     documentForm: 'documentPerLine',",
-				"     wildcardPaths:['00/2022/2022/01/01/00/*.json'],",
+				"     wildcardPaths:['00/2022/2022/01/02/00/*.json'],",
 				"     partitionBy('roundRobin', 2)) ~> source1",
 				"source1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
-				"     input(",
-				"          ts as string,",
-				"          topicName as string,",
-				"          connectionDeviceId as string,",
-				"          connectionAuthMethod as string,",
-				"          connectionDeviceGenerationId as string,",
-				"          enqueuedTime as string",
-				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> sink1"
 			]
