@@ -67,7 +67,10 @@
 				"     container: 'machinedata',",
 				"     documentForm: 'documentPerLine',",
 				"     wildcardPaths:['00/2022/2022/01/01/00/*.json'],",
-				"     partitionBy('roundRobin', 2)) ~> source2",
+				"     partitionBy('key',",
+				"          0,",
+				"          SystemProperties.connectionDeviceId",
+				"     )) ~> source2",
 				"source2 select(mapColumn(",
 				"          BAG1_opMode,",
 				"          Body,",
@@ -90,20 +93,15 @@
 				"          schemaId,",
 				"          ts",
 				"     ),",
-				"     partitionBy('roundRobin', 2),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> select3",
-				"select3 filter(connectionDeviceId == $foreachConnectionID,",
-				"     partitionBy('roundRobin', 2)) ~> filter1",
+				"select3 filter(connectionDeviceId == $foreachConnectionID) ~> filter1",
 				"filter1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
+				"     partitionFileNames:['concat(\\'partition_\\', byName(\\'SystemProperties.connectionDeviceId\\'))'],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     saveOrder: 1,",
-				"     partitionBy('key',",
-				"          0,",
-				"          connectionDeviceId",
-				"     )) ~> sink1"
+				"     saveOrder: 1) ~> sink1"
 			]
 		}
 	}
