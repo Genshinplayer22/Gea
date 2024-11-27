@@ -20,6 +20,13 @@
 						"type": "LinkedServiceReference"
 					},
 					"name": "source3"
+				},
+				{
+					"dataset": {
+						"referenceName": "sourceDatasetjson_2",
+						"type": "DatasetReference"
+					},
+					"name": "source4"
 				}
 			],
 			"sinks": [
@@ -67,7 +74,7 @@
 				"     format: 'json',",
 				"     container: 'machinedata',",
 				"     documentForm: 'documentPerLine',",
-				"     wildcardPaths:['00/2022/2022/06/14/16/00.json']) ~> source2",
+				"     wildcardPaths:['00/2022/2022/01/01/01/00.json']) ~> source2",
 				"source(useSchema: false,",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
@@ -76,7 +83,12 @@
 				"     format: 'json',",
 				"     container: 'machinedata',",
 				"     documentForm: 'documentPerLine',",
-				"     wildcardPaths:['00/2022/2022/03/11/08/00.json']) ~> source3",
+				"     wildcardPaths:['00/2022/2022/**/**/**/*.json']) ~> source3",
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     inferDriftedColumnTypes: true,",
+				"     ignoreNoFilesFound: false,",
+				"     documentForm: 'documentPerLine') ~> source4",
 				"source2 select(mapColumn(",
 				"          BAG1_opMode,",
 				"          Ch1_LineContent,",

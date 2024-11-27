@@ -14,7 +14,8 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"container": "machinedata"
-			}
+			},
+			"encodingName": "UTF-8"
 		},
 		"schema": {}
 	}
