@@ -40,14 +40,16 @@
 					"name": "select2"
 				},
 				{
-					"name": "MapDrifted2",
-					"description": "Creates an explicit mapping for each drifted column"
+					"name": "select3"
 				},
 				{
-					"name": "select3"
+					"name": "filter1"
 				}
 			],
 			"scriptLines": [
+				"parameters{",
+				"     foreachConnectionID as string",
+				"}",
 				"source(output(",
 				"          BAG1_opMode as short,",
 				"          Body as string,",
@@ -105,24 +107,8 @@
 				"     documentForm: 'documentPerLine',",
 				"     wildcardPaths:['00/2022/2022/01/01/00/*.json'],",
 				"     partitionBy('roundRobin', 2)) ~> source3",
-				"MapDrifted2 select(skipDuplicateMapInputs: true,",
+				"source3 select(skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> select2",
-				"source3 derive(BAG1_opMode = toString(byName('BAG1_opMode')),",
-				"          Body = toString(byName('Body')),",
-				"          Ch1_LineContent = toString(byName('Ch1_LineContent')),",
-				"          Ch1_ProgPfadName = toString(byName('Ch1_ProgPfadName')),",
-				"          Ch1_TollIdent = toString(byName('Ch1_TollIdent')),",
-				"          Ch1_actSpeed_S1 = toString(byName('Ch1_actSpeed_S1')),",
-				"          E_ProgRunn = toString(byName('E_ProgRunn')),",
-				"          E_ProgWait = toString(byName('E_ProgWait')),",
-				"          Eilgangoverride = toString(byName('Eilgangoverride')),",
-				"          EnqueuedTimeUtc = toString(byName('EnqueuedTimeUtc')),",
-				"          Spindeloverride = toString(byName('Spindeloverride')),",
-				"          Vorschuboverride = toString(byName('Vorschuboverride')),",
-				"          actProgNetTime = toString(byName('actProgNetTime')),",
-				"          ncStartCounter = toString(byName('ncStartCounter')),",
-				"          schemaId = toString(byName('schemaId')),",
-				"          ts = toString(byName('ts'))) ~> MapDrifted2",
 				"source2 select(mapColumn(",
 				"          BAG1_opMode,",
 				"          Body,",
@@ -145,12 +131,16 @@
 				"          schemaId,",
 				"          ts",
 				"     ),",
+				"     partitionBy('roundRobin', 2),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> select3",
-				"select3 sink(allowSchemaDrift: true,",
+				"select3 filter(connectionDeviceId == $foreachConnectionID,",
+				"     partitionBy('roundRobin', 2)) ~> filter1",
+				"filter1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
+				"     saveOrder: 1,",
 				"     partitionBy('roundRobin', 2)) ~> sink1"
 			]
 		}
