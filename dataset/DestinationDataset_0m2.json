@@ -1,0 +1,20 @@
+{
+	"name": "DestinationDataset_0m2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "test_json_1",
+				"folderPath": "Grouped data/test_27_11",
+				"container": "testcontainer"
+			}
+		},
+		"schema": {}
+	}
+}
