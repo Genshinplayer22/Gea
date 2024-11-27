@@ -13,6 +13,13 @@
 						"type": "LinkedServiceReference"
 					},
 					"name": "source2"
+				},
+				{
+					"linkedService": {
+						"referenceName": "AzureBlobStorage1",
+						"type": "LinkedServiceReference"
+					},
+					"name": "source3"
 				}
 			],
 			"sinks": [
@@ -21,7 +28,11 @@
 						"referenceName": "destinationDatasetCSV",
 						"type": "DatasetReference"
 					},
-					"name": "sink1"
+					"name": "sink1",
+					"rejectedDataLinkedService": {
+						"referenceName": "AzureBlobStorage1",
+						"type": "LinkedServiceReference"
+					}
 				}
 			],
 			"transformations": [
@@ -31,6 +42,16 @@
 				},
 				{
 					"name": "select1"
+				},
+				{
+					"name": "select2"
+				},
+				{
+					"name": "MapDrifted2",
+					"description": "Creates an explicit mapping for each drifted column"
+				},
+				{
+					"name": "parse1"
 				}
 			],
 			"scriptLines": [
@@ -41,8 +62,38 @@
 				"     format: 'json',",
 				"     container: 'machinedata',",
 				"     documentForm: 'documentPerLine',",
-				"     wildcardPaths:['00/2022/2022/01/**/**/*.json']) ~> source2",
-				"source2 derive(BAG1_opMode = toString(byName('BAG1_opMode')),",
+				"     wildcardPaths:['00/2022/2022/01/01/00/*.json'],",
+				"     partitionBy('roundRobin', 2)) ~> source2",
+				"source(useSchema: false,",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'json',",
+				"     container: 'machinedata',",
+				"     documentForm: 'documentPerLine',",
+				"     wildcardPaths:['00/2022/2022/01/01/00/*.json'],",
+				"     partitionBy('roundRobin', 2)) ~> source3",
+				"source2 derive(BAG1_opMode = toInteger(byName('BAG1_opMode')),",
+				"          Body = toString(byName('Body')),",
+				"          Ch1_LineContent = toString(byName('Ch1_LineContent')),",
+				"          Ch1_ProgPfadName = toString(byName('Ch1_ProgPfadName')),",
+				"          Ch1_TollIdent = toString(byName('Ch1_TollIdent')),",
+				"          Ch1_actSpeed_S1 = toInteger(byName('Ch1_actSpeed_S1')),",
+				"          E_ProgRunn = toString(byName('E_ProgRunn')),",
+				"          E_ProgWait = toString(byName('E_ProgWait')),",
+				"          Eilgangoverride = toString(byName('Eilgangoverride')),",
+				"          EnqueuedTimeUtc = toString(byName('EnqueuedTimeUtc')),",
+				"          Spindeloverride = toString(byName('Spindeloverride')),",
+				"          Vorschuboverride = toString(byName('Vorschuboverride')),",
+				"          actProgNetTime = toString(byName('actProgNetTime')),",
+				"          ncStartCounter = toString(byName('ncStartCounter')),",
+				"          schemaId = toString(byName('schemaId')),",
+				"          ts = toString(byName('ts'))) ~> MapDrifted1",
+				"MapDrifted1 select(skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"MapDrifted2 select(skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select2",
+				"source3 derive(BAG1_opMode = toString(byName('BAG1_opMode')),",
 				"          Body = toString(byName('Body')),",
 				"          Ch1_LineContent = toString(byName('Ch1_LineContent')),",
 				"          Ch1_ProgPfadName = toString(byName('Ch1_ProgPfadName')),",
@@ -57,27 +108,10 @@
 				"          actProgNetTime = toString(byName('actProgNetTime')),",
 				"          ncStartCounter = toString(byName('ncStartCounter')),",
 				"          schemaId = toString(byName('schemaId')),",
-				"          ts = toString(byName('ts'))) ~> MapDrifted1",
-				"MapDrifted1 select(mapColumn(",
-				"          BAG1_opMode,",
-				"          Ch1_LineContent,",
-				"          Ch1_ProgPfadName,",
-				"          Ch1_TollIdent,",
-				"          Ch1_actSpeed_S1,",
-				"          E_ProgRunn,",
-				"          E_ProgWait,",
-				"          Eilgangoverride,",
-				"          EnqueuedTimeUtc,",
-				"          Spindeloverride,",
-				"          Vorschuboverride,",
-				"          actProgNetTime,",
-				"          ncStartCounter,",
-				"          schemaId,",
-				"          ts",
-				"     ),",
-				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> select1",
-				"select1 sink(allowSchemaDrift: true,",
+				"          ts = toString(byName('ts'))) ~> MapDrifted2",
+				"select1 parse(format: 'json',",
+				"     documentForm: 'documentPerLine') ~> parse1",
+				"parse1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
