@@ -54,7 +54,7 @@
 				"     ignoreNoFilesFound: false,",
 				"     rowUrlColumn: 'fileName',",
 				"     documentForm: 'documentPerLine',",
-				"     wildcardPaths:['00/2022/2022/11/28/15/*.json']) ~> source1",
+				"     wildcardPaths:['00/2022/2022/11/**/**/*.json']) ~> source1",
 				"source1 derive(decoded_Body = array(fromBase64(Body))) ~> derivedColumn1",
 				"derivedColumn1 select(mapColumn(",
 				"          decoded_Body,",
