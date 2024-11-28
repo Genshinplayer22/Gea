@@ -148,7 +148,7 @@
 				"     skipDuplicateMapOutputs: true,",
 				"     partitionBy('key',",
 				"          0,",
-				"          connectionDeviceId",
+				"          ts",
 				"     )) ~> sink1"
 			]
 		}
