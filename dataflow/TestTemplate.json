@@ -18,7 +18,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "DestinationDataset_wh9",
+						"referenceName": "destinationDatasetCSV",
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
