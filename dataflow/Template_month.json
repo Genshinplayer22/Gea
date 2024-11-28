@@ -1,15 +1,15 @@
 {
-	"name": "TestTemplate",
+	"name": "Template_month",
 	"properties": {
 		"folder": {
-			"name": "New folder"
+			"name": "li"
 		},
 		"type": "MappingDataFlow",
 		"typeProperties": {
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "sourceDatasetJson",
+						"referenceName": "sourceDatasetJson_month",
 						"type": "DatasetReference"
 					},
 					"name": "source1"
@@ -18,7 +18,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "destinationDatasetJson",
+						"referenceName": "destination_December",
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
@@ -53,7 +53,8 @@
 				"     limit: 1000,",
 				"     ignoreNoFilesFound: false,",
 				"     rowUrlColumn: 'fileName',",
-				"     documentForm: 'documentPerLine') ~> source1",
+				"     documentForm: 'documentPerLine',",
+				"     wildcardPaths:['00/2022/2022/12/**/**/*.json']) ~> source1",
 				"source1 derive(decoded_Body = array(fromBase64(Body))) ~> derivedColumn1",
 				"derivedColumn1 select(mapColumn(",
 				"          decoded_Body,",
@@ -142,7 +143,7 @@
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> flatten4",
 				"flatten4 sink(allowSchemaDrift: true,",
-				"     validateSchema: true,",
+				"     validateSchema: false,",
 				"     input(",
 				"          ts as string,",
 				"          topicName as string,",
@@ -152,11 +153,7 @@
 				"          enqueuedTime as string",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true,",
-				"     partitionBy('key',",
-				"          0,",
-				"          connectionDeviceId",
-				"     )) ~> sink1"
+				"     skipDuplicateMapOutputs: true) ~> sink1"
 			]
 		}
 	}

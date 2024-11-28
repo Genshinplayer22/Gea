@@ -1,21 +1,20 @@
 {
-	"name": "sourceDatasetJson",
+	"name": "sourceDatasetJson_2022",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureBlobStorage1",
 			"type": "LinkedServiceReference"
 		},
 		"folder": {
-			"name": "rkp"
+			"name": "li"
 		},
 		"annotations": [],
 		"type": "Json",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "part-00000-06b651ea-299c-41ec-ada3-65f7efff85bb-c000.json",
-				"folderPath": "January",
-				"container": "group2"
+				"folderPath": "00/2022/2022",
+				"container": "machinedata"
 			}
 		},
 		"schema": {

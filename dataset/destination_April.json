@@ -1,19 +1,19 @@
 {
-	"name": "destinationDatasetJson",
+	"name": "destination_April",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureBlobStorage1",
 			"type": "LinkedServiceReference"
 		},
 		"folder": {
-			"name": "rkp"
+			"name": "li"
 		},
 		"annotations": [],
 		"type": "Json",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"folderPath": "January/grouped",
+				"folderPath": "April",
 				"container": "group2"
 			}
 		},
