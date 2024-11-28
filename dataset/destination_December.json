@@ -13,7 +13,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"folderPath": "December",
+				"folderPath": "December/grouped",
 				"container": "group2"
 			}
 		},
