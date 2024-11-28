@@ -18,7 +18,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "destinationDatasetCSV",
+						"referenceName": "destinationDatasetJson",
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
@@ -54,7 +54,7 @@
 				"     ignoreNoFilesFound: false,",
 				"     rowUrlColumn: 'fileName',",
 				"     documentForm: 'documentPerLine',",
-				"     wildcardPaths:['00/2022/2022/**/**/**/*.json']) ~> source1",
+				"     wildcardPaths:['00/2022/2022/01/01/**/*.json']) ~> source1",
 				"source1 derive(decoded_Body = array(fromBase64(Body))) ~> derivedColumn1",
 				"derivedColumn1 select(mapColumn(",
 				"          decoded_Body,",
@@ -144,6 +144,14 @@
 				"     skipDuplicateMapOutputs: true) ~> flatten4",
 				"flatten4 sink(allowSchemaDrift: true,",
 				"     validateSchema: true,",
+				"     input(",
+				"          ts as string,",
+				"          topicName as string,",
+				"          connectionDeviceId as string,",
+				"          connectionAuthMethod as string,",
+				"          connectionDeviceGenerationId as string,",
+				"          enqueuedTime as string",
+				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
 				"     partitionBy('key',",
