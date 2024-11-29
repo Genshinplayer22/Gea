@@ -1,18 +1,18 @@
 {
-	"name": "SourceDataset_wh9",
+	"name": "messagesPaul",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "JSONBlobStorage1",
+			"referenceName": "AzureDataLakeStorage1",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "Json",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobStorageLocation",
+				"type": "AzureBlobFSLocation",
 				"fileName": "01.json",
 				"folderPath": "00/2022/2022/01/01/00",
-				"container": "machinedata"
+				"fileSystem": "machinedata"
 			}
 		},
 		"schema": {

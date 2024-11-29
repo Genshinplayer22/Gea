@@ -1,0 +1,64 @@
+{
+	"name": "dataflowPaul",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "messagesPaul",
+						"type": "DatasetReference"
+					},
+					"name": "loadData"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DestinationParquetPaul",
+						"type": "DatasetReference"
+					},
+					"name": "sinkAsParquetsink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "decodeBodyfromBase64derivedColumn1"
+				},
+				{
+					"name": "parseFromBodyparse1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          EnqueuedTimeUtc as string,",
+				"          Properties as ({} as string),",
+				"          SystemProperties as (connectionDeviceId as string, connectionAuthMethod as string, connectionDeviceGenerationId as string, enqueuedTime as string),",
+				"          Body as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     documentForm: 'documentPerLine') ~> loadData",
+				"loadData derive(Body = fromBase64(Body)) ~> decodeBodyfromBase64derivedColumn1",
+				"decodeBodyfromBase64derivedColumn1 parse(BodyContent = Body ? (schemaId as string,\r",
+				"     ts as string,\r",
+				"     E_ProgRunn as boolean,\r",
+				"     E_ProgWait as boolean,\r",
+				"     Ch1_ProgPfadName as string,\r",
+				"     {JobName.value} as string,\r",
+				"     BAG1_opMode as integer)[],",
+				"     format: 'json',",
+				"     documentForm: 'arrayOfDocuments') ~> parseFromBodyparse1",
+				"parseFromBodyparse1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'parquet',",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sinkAsParquetsink1"
+			]
+		}
+	}
+}
