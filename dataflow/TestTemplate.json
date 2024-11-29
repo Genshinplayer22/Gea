@@ -13,13 +13,6 @@
 						"type": "DatasetReference"
 					},
 					"name": "source1"
-				},
-				{
-					"dataset": {
-						"referenceName": "sourceDatasetjson_2",
-						"type": "DatasetReference"
-					},
-					"name": "source2"
 				}
 			],
 			"sinks": [
@@ -28,7 +21,11 @@
 						"referenceName": "Parquet1",
 						"type": "DatasetReference"
 					},
-					"name": "sink1"
+					"name": "sink1",
+					"rejectedDataLinkedService": {
+						"referenceName": "AzureBlobStorage1",
+						"type": "LinkedServiceReference"
+					}
 				}
 			],
 			"transformations": [
@@ -62,12 +59,6 @@
 				"     rowUrlColumn: 'fileName',",
 				"     documentForm: 'documentPerLine',",
 				"     wildcardPaths:['00/2022/2022/01/01/01/*.json']) ~> source1",
-				"source(allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     ignoreNoFilesFound: false,",
-				"     documentForm: 'documentPerLine',",
-				"     wildcardPaths:['00/2022/2022/01/01/00/*.json'],",
-				"     partitionBy('roundRobin', 2)) ~> source2",
 				"source1 derive(decoded_Body = array(fromBase64(Body))) ~> derivedColumn1",
 				"derivedColumn1 select(mapColumn(",
 				"          decoded_Body,",
@@ -157,6 +148,38 @@
 				"     skipDuplicateMapOutputs: true) ~> flatten4",
 				"flatten4 sink(allowSchemaDrift: true,",
 				"     validateSchema: true,",
+				"     input(",
+				"          ts as string,",
+				"          topicName as string,",
+				"          E_ProgRunn as boolean,",
+				"          E_ProgWait as boolean,",
+				"          E_ProgStop as boolean,",
+				"          E_ProgrAborted as boolean,",
+				"          E_ChanActive as boolean,",
+				"          Ch1_ProgPfadName as string,",
+				"          Ch1_LineContent as string,",
+				"          Ch1_ToolIdent as string,",
+				"          Ist_Werkstueckzahl as integer,",
+				"          Soll_Werkstueckzahl as integer,",
+				"          GesSummeWerkstuecke as integer,",
+				"          Vorschuboverride as integer,",
+				"          Spindeloverride as integer,",
+				"          Ch1_actSpeed_S1 as integer,",
+				"          ncProgEndCounter as integer,",
+				"          ncStartCounter as integer,",
+				"          WerkzeugEingrZeit as integer,",
+				"          LZeitaktProgramm as integer,",
+				"          GeslaufzeitProg as integer,",
+				"          actProgNetTime as integer,",
+				"          oldProgNetTime as integer,",
+				"          NCKPrgzustand as integer,",
+				"          BAGbetriebsbereit as integer,",
+				"          BAG1_opMode as integer,",
+				"          connectionAuthMethod as string,",
+				"          connectionDeviceGenerationId as long,",
+				"          enqueuedTime as string,",
+				"          connectionDeviceId as string",
+				"     ),",
 				"     format: 'parquet',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",

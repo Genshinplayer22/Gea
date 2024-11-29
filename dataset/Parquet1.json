@@ -14,6 +14,127 @@
 			},
 			"compressionCodec": "snappy"
 		},
-		"schema": []
+		"schema": [
+			{
+				"name": "ts",
+				"type": "UTF8"
+			},
+			{
+				"name": "topicName",
+				"type": "UTF8"
+			},
+			{
+				"name": "E_ProgRunn",
+				"type": "BOOLEAN"
+			},
+			{
+				"name": "E_ProgWait",
+				"type": "BOOLEAN"
+			},
+			{
+				"name": "E_ProgStop",
+				"type": "BOOLEAN"
+			},
+			{
+				"name": "E_ProgrAborted",
+				"type": "BOOLEAN"
+			},
+			{
+				"name": "E_ChanActive",
+				"type": "BOOLEAN"
+			},
+			{
+				"name": "Ch1_ProgPfadName",
+				"type": "UTF8"
+			},
+			{
+				"name": "Ch1_LineContent",
+				"type": "UTF8"
+			},
+			{
+				"name": "Ch1_ToolIdent",
+				"type": "UTF8"
+			},
+			{
+				"name": "Ist_Werkstueckzahl",
+				"type": "INT32"
+			},
+			{
+				"name": "Soll_Werkstueckzahl",
+				"type": "INT32"
+			},
+			{
+				"name": "GesSummeWerkstuecke",
+				"type": "INT32"
+			},
+			{
+				"name": "Vorschuboverride",
+				"type": "INT32"
+			},
+			{
+				"name": "Spindeloverride",
+				"type": "INT32"
+			},
+			{
+				"name": "Ch1_actSpeed_S1",
+				"type": "INT32"
+			},
+			{
+				"name": "ncProgEndCounter",
+				"type": "INT32"
+			},
+			{
+				"name": "ncStartCounter",
+				"type": "INT32"
+			},
+			{
+				"name": "WerkzeugEingrZeit",
+				"type": "INT32"
+			},
+			{
+				"name": "LZeitaktProgramm",
+				"type": "INT32"
+			},
+			{
+				"name": "GeslaufzeitProg",
+				"type": "INT32"
+			},
+			{
+				"name": "actProgNetTime",
+				"type": "INT32"
+			},
+			{
+				"name": "oldProgNetTime",
+				"type": "INT32"
+			},
+			{
+				"name": "NCKPrgzustand",
+				"type": "INT32"
+			},
+			{
+				"name": "BAGbetriebsbereit",
+				"type": "INT32"
+			},
+			{
+				"name": "BAG1_opMode",
+				"type": "INT32"
+			},
+			{
+				"name": "connectionAuthMethod",
+				"type": "UTF8"
+			},
+			{
+				"name": "connectionDeviceGenerationId",
+				"type": "INT64"
+			},
+			{
+				"name": "enqueuedTime",
+				"type": "UTF8"
+			},
+			{
+				"name": "connectionDeviceId",
+				"type": "UTF8"
+			}
+		]
 	}
 }
