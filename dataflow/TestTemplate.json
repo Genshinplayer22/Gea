@@ -8,6 +8,10 @@
 		"typeProperties": {
 			"sources": [
 				{
+					"dataset": {
+						"referenceName": "sourceDatasetJson",
+						"type": "DatasetReference"
+					},
 					"name": "source1"
 				}
 			],
@@ -38,10 +42,19 @@
 				}
 			],
 			"scriptLines": [
-				"source(allowSchemaDrift: true,",
+				"source(output(",
+				"          EnqueuedTimeUtc as string,",
+				"          Properties as ({} as string),",
+				"          SystemProperties as (connectionDeviceId as string, connectionAuthMethod as string, connectionDeviceGenerationId as string, enqueuedTime as string),",
+				"          Body as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     limit: 1000,",
-				"     rowUrlColumn: 'fileName') ~> source1",
+				"     ignoreNoFilesFound: false,",
+				"     rowUrlColumn: 'fileName',",
+				"     documentForm: 'documentPerLine',",
+				"     wildcardPaths:['00/2022/2022/**/**/**/*.json']) ~> source1",
 				"source1 derive(decoded_Body = array(fromBase64(Body))) ~> derivedColumn1",
 				"derivedColumn1 select(mapColumn(",
 				"          decoded_Body,",
