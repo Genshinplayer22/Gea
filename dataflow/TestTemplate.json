@@ -17,9 +17,9 @@
 			],
 			"sinks": [
 				{
-					"linkedService": {
-						"referenceName": "AzureBlobStorage1",
-						"type": "LinkedServiceReference"
+					"dataset": {
+						"referenceName": "Parquet1",
+						"type": "DatasetReference"
 					},
 					"name": "sink1"
 				}
@@ -144,7 +144,6 @@
 				"flatten4 sink(allowSchemaDrift: true,",
 				"     validateSchema: true,",
 				"     format: 'parquet',",
-				"     container: 'testcontainer',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
 				"     partitionBy('key',",
