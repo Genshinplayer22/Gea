@@ -27,6 +27,9 @@
 				},
 				{
 					"name": "parseFromBodyparse1"
+				},
+				{
+					"name": "flatten1"
 				}
 			],
 			"scriptLines": [
@@ -50,7 +53,17 @@
 				"     BAG1_opMode as integer)[],",
 				"     format: 'json',",
 				"     documentForm: 'arrayOfDocuments') ~> parseFromBodyparse1",
-				"parseFromBodyparse1 sink(allowSchemaDrift: true,",
+				"parseFromBodyparse1 foldDown(unroll(),",
+				"     mapColumn(",
+				"          EnqueuedTimeUtc,",
+				"          Properties,",
+				"          SystemProperties,",
+				"          Body,",
+				"          BodyContent",
+				"     ),",
+				"     skipDuplicateMapInputs: false,",
+				"     skipDuplicateMapOutputs: false) ~> flatten1",
+				"flatten1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     format: 'parquet',",
 				"     umask: 0022,",
