@@ -1,6 +1,9 @@
 {
-	"name": "dataflowPaul",
+	"name": "11111",
 	"properties": {
+		"folder": {
+			"name": "New folder"
+		},
 		"type": "MappingDataFlow",
 		"typeProperties": {
 			"sources": [
