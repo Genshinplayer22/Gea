@@ -17,9 +17,9 @@
 			],
 			"sinks": [
 				{
-					"dataset": {
-						"referenceName": "destinationDatasetJson",
-						"type": "DatasetReference"
+					"linkedService": {
+						"referenceName": "AzureBlobStorage1",
+						"type": "LinkedServiceReference"
 					},
 					"name": "sink1"
 				}
@@ -143,14 +143,8 @@
 				"     skipDuplicateMapOutputs: true) ~> flatten4",
 				"flatten4 sink(allowSchemaDrift: true,",
 				"     validateSchema: true,",
-				"     input(",
-				"          ts as string,",
-				"          topicName as string,",
-				"          connectionDeviceId as string,",
-				"          connectionAuthMethod as string,",
-				"          connectionDeviceGenerationId as string,",
-				"          enqueuedTime as string",
-				"     ),",
+				"     format: 'parquet',",
+				"     container: 'testcontainer',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
 				"     partitionBy('key',",
