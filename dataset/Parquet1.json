@@ -10,8 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"folderPath": "Grouped data",
-				"container": "testcontainer"
+				"container": "parquet"
 			},
 			"compressionCodec": "snappy"
 		},
