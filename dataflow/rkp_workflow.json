@@ -90,7 +90,7 @@
 				"          oldProgNetTime as string",
 				"     ),",
 				"     format: 'parquet',",
-				"     filePattern:'January[n].parquet',",
+				"     filePattern:'February[n].parquet',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
 				"     preCommands: [],",
