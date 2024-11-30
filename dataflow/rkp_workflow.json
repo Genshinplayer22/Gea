@@ -9,7 +9,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "sourceDatasetJson",
+						"referenceName": "sourceDatasetJson_3",
 						"type": "DatasetReference"
 					},
 					"name": "loadData"
