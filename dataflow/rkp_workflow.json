@@ -89,10 +89,8 @@
 				"          oldProgNetTime as string",
 				"     ),",
 				"     format: 'parquet',",
-				"     partitionFileNames:['testFile_parquet_30_11'],",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     partitionBy('hash', 1),",
 				"     preCommands: [],",
 				"     postCommands: []) ~> sinkAsParquetsink1"
 			]
