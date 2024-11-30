@@ -29,9 +29,6 @@
 					"name": "decodeBodyfromBase64derivedColumn1"
 				},
 				{
-					"name": "parseFromBodyparse1"
-				},
-				{
 					"name": "select1"
 				}
 			],
@@ -46,17 +43,8 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
 				"     documentForm: 'documentPerLine') ~> loadData",
-				"loadData derive(Body = fromBase64(Body)) ~> decodeBodyfromBase64derivedColumn1",
-				"decodeBodyfromBase64derivedColumn1 parse(BodyContent = Body ? (schemaId as string,\r",
-				"     ts as string,\r",
-				"     E_ProgRunn as boolean,\r",
-				"     E_ProgWait as boolean,\r",
-				"     Ch1_ProgPfadName as string,\r",
-				"     {JobName.value} as string,\r",
-				"     BAG1_opMode as integer)[],",
-				"     format: 'json',",
-				"     documentForm: 'arrayOfDocuments') ~> parseFromBodyparse1",
-				"parseFromBodyparse1 select(mapColumn(",
+				"loadData derive(BodyContent = fromBase64(Body)) ~> decodeBodyfromBase64derivedColumn1",
+				"decodeBodyfromBase64derivedColumn1 select(mapColumn(",
 				"          EnqueuedTimeUtc,",
 				"          SystemProperties = SystemProperties.connectionDeviceId,",
 				"          connectionAuthMethod = SystemProperties.connectionAuthMethod,",
