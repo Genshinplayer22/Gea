@@ -43,7 +43,7 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
 				"     documentForm: 'documentPerLine',",
-				"     wildcardPaths:['00/2022/2022/01/01/**/*.json']) ~> loadData",
+				"     wildcardPaths:['00/2022/2022/01/**/**/*.json']) ~> loadData",
 				"loadData derive(BodyContent = fromBase64(Body)) ~> decodeBodyfromBase64derivedColumn1",
 				"decodeBodyfromBase64derivedColumn1 select(mapColumn(",
 				"          EnqueuedTimeUtc,",
