@@ -13,9 +13,9 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "part-00000-06b651ea-299c-41ec-ada3-65f7efff85bb-c000.json",
-				"folderPath": "January",
-				"container": "group2"
+				"fileName": "10.json",
+				"folderPath": "00/2022/2022/06/08/09",
+				"container": "machinedata"
 			}
 		},
 		"schema": {
