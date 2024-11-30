@@ -1,0 +1,143 @@
+{
+	"name": "destinationDatasetParquet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "rkp"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "group2"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "ts",
+				"type": "UTF8"
+			},
+			{
+				"name": "topicName",
+				"type": "UTF8"
+			},
+			{
+				"name": "connectionDeviceId",
+				"type": "UTF8"
+			},
+			{
+				"name": "connectionAuthMethod",
+				"type": "UTF8"
+			},
+			{
+				"name": "connectionDeviceGenerationId",
+				"type": "UTF8"
+			},
+			{
+				"name": "enqueuedTime",
+				"type": "UTF8"
+			},
+			{
+				"name": "BAG1_opMode",
+				"type": "UTF8"
+			},
+			{
+				"name": "BAGbetriebsbereit",
+				"type": "UTF8"
+			},
+			{
+				"name": "Ch1_LineContent",
+				"type": "UTF8"
+			},
+			{
+				"name": "Ch1_ProgPfadName",
+				"type": "UTF8"
+			},
+			{
+				"name": "Ch1_ToolIdent",
+				"type": "UTF8"
+			},
+			{
+				"name": "Ch1_actSpeed_S1",
+				"type": "UTF8"
+			},
+			{
+				"name": "E_ChanActive",
+				"type": "UTF8"
+			},
+			{
+				"name": "E_ProgRunn",
+				"type": "UTF8"
+			},
+			{
+				"name": "E_ProgStop",
+				"type": "UTF8"
+			},
+			{
+				"name": "E_ProgWait",
+				"type": "UTF8"
+			},
+			{
+				"name": "E_ProgrAborted",
+				"type": "UTF8"
+			},
+			{
+				"name": "GesSummeWerkstuecke",
+				"type": "UTF8"
+			},
+			{
+				"name": "GeslaufzeitProg",
+				"type": "UTF8"
+			},
+			{
+				"name": "Ist_Werkstueckzahl",
+				"type": "UTF8"
+			},
+			{
+				"name": "LZeitaktProgramm",
+				"type": "UTF8"
+			},
+			{
+				"name": "NCKPrgzustand",
+				"type": "UTF8"
+			},
+			{
+				"name": "Soll_Werkstueckzahl",
+				"type": "UTF8"
+			},
+			{
+				"name": "Spindeloverride",
+				"type": "UTF8"
+			},
+			{
+				"name": "Vorschuboverride",
+				"type": "UTF8"
+			},
+			{
+				"name": "WerkzeugEingrZeit",
+				"type": "UTF8"
+			},
+			{
+				"name": "actProgNetTime",
+				"type": "UTF8"
+			},
+			{
+				"name": "ncProgEndCounter",
+				"type": "UTF8"
+			},
+			{
+				"name": "ncStartCounter",
+				"type": "UTF8"
+			},
+			{
+				"name": "oldProgNetTime",
+				"type": "UTF8"
+			}
+		]
+	}
+}
