@@ -1,0 +1,23 @@
+{
+	"name": "output_excel_zd",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "zd"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "zd",
+				"container": "testcontainer"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": []
+	}
+}
