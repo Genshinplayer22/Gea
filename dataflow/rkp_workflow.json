@@ -9,7 +9,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "sourceDatasetJson_3",
+						"referenceName": "sourceDatasetJson",
 						"type": "DatasetReference"
 					},
 					"name": "loadData"
@@ -42,7 +42,8 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
-				"     documentForm: 'documentPerLine') ~> loadData",
+				"     documentForm: 'documentPerLine',",
+				"     wildcardPaths:['00/2022/2022/06/01/01/*.json']) ~> loadData",
 				"loadData derive(BodyContent = fromBase64(Body)) ~> decodeBodyfromBase64derivedColumn1",
 				"decodeBodyfromBase64derivedColumn1 select(mapColumn(",
 				"          EnqueuedTimeUtc,",
