@@ -30,6 +30,9 @@
 				},
 				{
 					"name": "parseFromBodyparse1"
+				},
+				{
+					"name": "select1"
 				}
 			],
 			"scriptLines": [
@@ -53,7 +56,17 @@
 				"     BAG1_opMode as integer)[],",
 				"     format: 'json',",
 				"     documentForm: 'arrayOfDocuments') ~> parseFromBodyparse1",
-				"parseFromBodyparse1 sink(allowSchemaDrift: true,",
+				"parseFromBodyparse1 select(mapColumn(",
+				"          EnqueuedTimeUtc,",
+				"          SystemProperties = SystemProperties.connectionDeviceId,",
+				"          connectionAuthMethod = SystemProperties.connectionAuthMethod,",
+				"          connectionDeviceGenerationId = SystemProperties.connectionDeviceGenerationId,",
+				"          enqueuedTime = SystemProperties.enqueuedTime,",
+				"          BodyContent",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"select1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          ts as string,",
