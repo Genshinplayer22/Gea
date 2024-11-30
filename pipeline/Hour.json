@@ -16,28 +16,8 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "11111",
-						"type": "DataFlowReference",
-						"datasetParameters": {
-							"loadData": {
-								"Year": {
-									"value": "@pipeline().parameters.Year",
-									"type": "Expression"
-								},
-								"Month": {
-									"value": "@pipeline().parameters.Month",
-									"type": "Expression"
-								},
-								"Day": {
-									"value": "@pipeline().parameters.Day",
-									"type": "Expression"
-								},
-								"Hour": {
-									"value": "@pipeline().parameters.Hour",
-									"type": "Expression"
-								}
-							}
-						}
+						"referenceName": "rkp_workflow",
+						"type": "DataFlowReference"
 					},
 					"compute": {
 						"coreCount": 8,
