@@ -16,12 +16,12 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "Template_month",
+						"referenceName": "rkp_workflow",
 						"type": "DataFlowReference"
 					},
 					"compute": {
-						"coreCount": 32,
-						"computeType": "MemoryOptimized"
+						"coreCount": 8,
+						"computeType": "General"
 					},
 					"traceLevel": "Fine"
 				}
