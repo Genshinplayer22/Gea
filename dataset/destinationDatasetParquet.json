@@ -13,6 +13,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
+				"folderPath": "Decoded data in parquet format",
 				"container": "group2"
 			},
 			"compressionCodec": "snappy"

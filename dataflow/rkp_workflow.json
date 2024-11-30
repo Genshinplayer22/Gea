@@ -89,6 +89,7 @@
 				"          oldProgNetTime as string",
 				"     ),",
 				"     format: 'parquet',",
+				"     filePattern:'testDecode[n]',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
 				"     preCommands: [],",
