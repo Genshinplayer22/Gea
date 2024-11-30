@@ -93,7 +93,6 @@
 				"     filePattern:'January[n]',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     partitionBy('hash', 1),",
 				"     preCommands: [],",
 				"     postCommands: []) ~> sinkAsParquetsink1"
 			]
