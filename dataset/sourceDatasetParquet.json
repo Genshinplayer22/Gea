@@ -13,7 +13,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "normalized_January1.parquet",
+				"fileName": "normalized_January2.parquet",
 				"folderPath": "Normalized data in parquet format/JanuaryMachineData_normalized",
 				"container": "group2"
 			},
