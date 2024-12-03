@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "rkp_workflow",
+						"referenceName": "grouping_rkp",
 						"type": "DataFlowReference"
 					},
 					"compute": {
