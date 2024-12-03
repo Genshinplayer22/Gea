@@ -1,0 +1,221 @@
+{
+	"name": "sourceDatasetParquet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "rkp"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "normalized_January1.parquet",
+				"folderPath": "Normalized data in parquet format/JanuaryMachineData_normalized",
+				"container": "group2"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "EnqueuedTimeUtc",
+				"type": "UTF8"
+			},
+			{
+				"name": "connectionDeviceId",
+				"type": "UTF8"
+			},
+			{
+				"name": "connectionAuthMethod",
+				"type": "UTF8"
+			},
+			{
+				"name": "connectionDeviceGenerationId",
+				"type": "UTF8"
+			},
+			{
+				"name": "enqueuedTime",
+				"type": "UTF8"
+			},
+			{
+				"name": "ts",
+				"type": "UTF8"
+			},
+			{
+				"name": "E_ProgRunn",
+				"type": "BOOLEAN"
+			},
+			{
+				"name": "E_ProgWait",
+				"type": "BOOLEAN"
+			},
+			{
+				"name": "Ch1_ProgPfadName",
+				"type": "UTF8"
+			},
+			{
+				"name": "Ch1_LineContent",
+				"type": "UTF8"
+			},
+			{
+				"name": "Ch1_ToolIdent",
+				"type": "UTF8"
+			},
+			{
+				"name": "Vorschuboverride",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "Eilgangoverride",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "Spindeloverride",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "Ch1_actSpeed_S1",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "ncStartCounter",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "actProgNetTime",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "oldProgNetTime",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "BAG1_opMode",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "topicName",
+				"type": "UTF8"
+			},
+			{
+				"name": "Event_E_ProgRunn",
+				"type": "BOOLEAN"
+			},
+			{
+				"name": "Event_E_ProgWait",
+				"type": "BOOLEAN"
+			},
+			{
+				"name": "Event_Ch1_ProgPfadName",
+				"type": "INT32"
+			},
+			{
+				"name": "Event_BAG1_opMode",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "ZeitHauptschalterEin",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "ZeitMaschineBetriebsbereit",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "ZeitVorschubachsenAktiv",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "ZeitProgrammAktiv",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "ZeitHauptspindelAktiv",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "ZeitHauptspindelAlsCAchseAktiv",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "ZeitFrässpindelAktiv",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "ZeitVorschubachseAktiv",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "E_ProgStop",
+				"type": "INT32"
+			},
+			{
+				"name": "E_ProgInterrupt",
+				"type": "INT32"
+			},
+			{
+				"name": "E_ProgrAborted",
+				"type": "INT32"
+			},
+			{
+				"name": "E_ChanActive",
+				"type": "INT32"
+			},
+			{
+				"name": "Ist_Werkstueckzahl",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "Soll_Werkstueckzahl",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "GesSummeWerkstuecke",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "ncProgEndCounter",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "WerkzeugEingrZeit",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "LZeitaktProgramm",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "GeslaufzeitProg",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "NCKPrgzustand",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "BAGbetriebsbereit",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "V1_Mot_temp_r0035",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "V2_Mot_temp_r0035",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "V3_Mot_temp_r0035",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "V4_Mot_temp_r0035",
+				"type": "DOUBLE"
+			}
+		]
+	}
+}
