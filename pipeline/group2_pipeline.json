@@ -1,5 +1,5 @@
 {
-	"name": "test pipeline with only one data flow",
+	"name": "group2_pipeline",
 	"properties": {
 		"activities": [
 			{
