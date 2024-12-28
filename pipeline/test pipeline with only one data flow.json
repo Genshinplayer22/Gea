@@ -16,12 +16,12 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "rkp_workflow",
+						"referenceName": "group2_workflow",
 						"type": "DataFlowReference"
 					},
 					"compute": {
-						"coreCount": 32,
-						"computeType": "MemoryOptimized"
+						"coreCount": 8,
+						"computeType": "General"
 					},
 					"traceLevel": "Fine"
 				}
